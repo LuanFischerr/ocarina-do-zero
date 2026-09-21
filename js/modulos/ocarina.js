@@ -8,7 +8,7 @@ import { ler, salvar } from '../estado.js';
 const SELOS = { alta: 'Confiança alta', media: 'Confiança média', baixa: 'Confiança baixa' };
 const html = (s) => { const t = document.createElement('template'); t.innerHTML = s.trim(); return t.content.firstElementChild; };
 
-export async function montar(raiz) {
+export async function montar(raiz, params = []) {
   raiz.innerHTML = '<p role="status">Carregando a ocarina…</p>';
   let O;
   try {
@@ -25,6 +25,7 @@ export async function montar(raiz) {
     notaId: ler('ocarina.nota', 'C5'),
     usarAlt: null,                      // índice da alternativa mostrada, ou null
   };
+  if (params[0] && porId.has(params[0])) estado.notaId = params[0]; // link direto: #/ocarina/G5
   if (!porId.has(estado.notaId)) estado.notaId = 'C5';
   let orient = null;
   let ocarina = null;
@@ -34,7 +35,7 @@ export async function montar(raiz) {
     <section class="tela-ocarina">
       <div class="tela-cab">
         <h1>Ocarina interativa</h1>
-        <p>Escolha uma nota para ver quais furos cobrir e ouvir o som — ou toque nos furos e descubra que nota você fez.</p>
+        <p>Escolha uma nota para ver quais furos cobrir e ouvir o som — ou toque nos furos e descubra que nota você fez. <a href="#/tabela">Ver tabela completa</a></p>
       </div>
       <div class="modos" role="tablist" aria-label="Modo">
         <button role="tab" id="tab-nota" aria-selected="true" aria-controls="painel-modo">Nota → dedilhado</button>
@@ -106,6 +107,7 @@ export async function montar(raiz) {
     estado.notaId = id;
     estado.usarAlt = null;
     salvar('ocarina.nota', id);
+    history.replaceState(null, '', `#/ocarina/${encodeURIComponent(id)}`); // link compartilhável, sem recarregar a tela
     ocarina.definirCobertos(dedilhadoAtual(), { destacarMudancas: true });
     teclado.marcar(id);
     if (tocar) tocar_(id);
