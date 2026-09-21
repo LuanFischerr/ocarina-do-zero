@@ -1,6 +1,6 @@
 // Widgets da Técnica. Cada um: ({ O, dados, passo }) => { el, destruir? }
 import { nomeNota, rotuloCompleto } from '../ocarina/dedilhados.js';
-import { criarOcarinaSVG } from '../ocarina/ocarina-svg.js';
+import { criarOcarinaSVG, ocarinaResponsiva } from '../ocarina/ocarina-svg.js';
 import { criarMedidor } from '../ocarina/medidor.js';
 import { garantirAudio, tocarNota, tocarSequencia, iniciarSopro, centsDaPressao, frequenciaMidi } from '../audio/sintese.js';
 import { ler, salvar } from '../estado.js';
@@ -8,23 +8,6 @@ import { ler, salvar } from '../estado.js';
 const html = (s) => { const t = document.createElement('template'); t.innerHTML = s.trim(); return t.content.firstElementChild; };
 const reduzMovimento = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-
-/** Ocarina que troca entre horizontal/vertical conforme a largura do contêiner. */
-function ocarinaResponsiva(slot, layout, opcoes, aoCriar) {
-  let orient = null;
-  const montar = () => {
-    const nova = slot.clientWidth && slot.clientWidth < 560 ? 'vertical' : 'horizontal';
-    if (nova === orient) return;
-    orient = nova;
-    const oc = criarOcarinaSVG(layout, { ...opcoes, orientacao: nova });
-    slot.replaceChildren(oc.svg);
-    aoCriar(oc, nova);
-  };
-  const ro = new ResizeObserver(montar);
-  ro.observe(slot);
-  montar();
-  return () => ro.disconnect();
-}
 
 // ------------------------------------------------------------ mapa das mãos
 function mapaMaos({ O }) {

@@ -130,3 +130,24 @@ export function criarOcarinaSVG(layout, { interativo = false, aoAlternar = () =>
     mostrarRotulos(on) { svg.classList.toggle('com-rotulos', on); },
   };
 }
+
+/**
+ * Ocarina que troca entre horizontal e vertical conforme a largura do contêiner (celular = vertical, como na foto).
+ * aoCriar(ocarina, orientacao) é chamado a cada (re)criação. Retorna a função que desliga o observador.
+ */
+export function ocarinaResponsiva(slot, layout, opcoes, aoCriar, { limite = 560 } = {}) {
+  let orient = null;
+  const montar = () => {
+    const nova = slot.clientWidth && slot.clientWidth < limite ? 'vertical' : 'horizontal';
+    if (nova === orient) return;
+    orient = nova;
+    slot.dataset.orient = nova;
+    const oc = criarOcarinaSVG(layout, { ...opcoes, orientacao: nova });
+    slot.replaceChildren(oc.svg);
+    aoCriar(oc, nova);
+  };
+  const ro = new ResizeObserver(montar);
+  ro.observe(slot);
+  montar();
+  return () => ro.disconnect();
+}

@@ -22,8 +22,10 @@ const LETRAS = Object.keys(NOMES);
 /**
  * @param gerar  () => [{ enunciado, extra?, aoMostrar?, opcoes: string[], correta: number, explicacao }]
  * @param aoTerminar ({ acertos, total, aprovada }) => void
+ * @param aoResponder (pergunta, certa) => void  — usado pela Prática para registrar acertos por nota
+ * @param mensagemFim (acertos, total, aprovada) => string  — texto do resultado (padrão: aprovado/reprovado)
  */
-function criarQuiz({ instrucao, gerar, aprovacao, aoTerminar }) {
+export function criarQuiz({ instrucao, gerar, aprovacao, aoTerminar, aoResponder = null, mensagemFim = null }) {
   const el = html(`<div class="quiz"><p class="quiz-instr">${instrucao}</p><div class="quiz-corpo"></div></div>`);
   const corpo = el.querySelector('.quiz-corpo');
   let perguntas = [];
@@ -59,6 +61,7 @@ function criarQuiz({ instrucao, gerar, aprovacao, aoTerminar }) {
     const p = perguntas[i];
     const certa = k === p.correta;
     if (certa) acertos++;
+    aoResponder?.(p, certa);
     corpo.querySelectorAll('.quiz-op').forEach((b) => {
       const n = Number(b.dataset.k);
       b.disabled = true;
@@ -80,7 +83,7 @@ function criarQuiz({ instrucao, gerar, aprovacao, aoTerminar }) {
     corpo.innerHTML = `
       <div class="quiz-fim" data-ok="${aprovada}">
         <p class="grande">${acertos} de ${total}</p>
-        <p>${aprovada ? '✓ Etapa concluída! Muito bem.' : `Você precisa de pelo menos ${aprovacao} acertos. Vale tentar de novo, sem pressa.`}</p>
+        <p>${mensagemFim ? mensagemFim(acertos, total, aprovada) : aprovada ? '✓ Etapa concluída! Muito bem.' : `Você precisa de pelo menos ${aprovacao} acertos. Vale tentar de novo, sem pressa.`}</p>
         <button type="button" class="btn ${aprovada ? '' : 'btn-primario'}" data-de-novo>${aprovada ? 'Refazer' : 'Tentar de novo'}</button>
       </div>`;
     corpo.querySelector('[data-de-novo]').addEventListener('click', comecar);
