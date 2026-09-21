@@ -40,6 +40,11 @@ export function criarTeclado(notas, aoEscolher) {
 
   return {
     el: wrap,
+    /** Mostra ♯ ou ♭ nas teclas pretas (o nome acessível continua trazendo os dois). */
+    definirAcidente(tipo) {
+      const s = tipo === 'bemol' ? '♭' : '♯';
+      for (const n of notas) if (!nomeNota(n.id).natural) botoes.get(n.id).textContent = s;
+    },
     marcar(id) {
       for (const [k, b] of botoes) b.setAttribute('aria-pressed', String(k === id));
       const b = botoes.get(id);
