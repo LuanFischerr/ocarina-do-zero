@@ -19,3 +19,18 @@ export function registrarLicao(id, { acertos, total, aprovada }) {
   salvar(CHAVE, p);
   return p[id];
 }
+
+// ---- Técnica: tópicos marcados como "praticados" ----
+const CHAVE_TEC = 'progresso.tecnica';
+
+export function progressoTecnica() {
+  return ler(CHAVE_TEC, {}) || {};
+}
+
+export function marcarTecnica(id, praticado) {
+  const p = progressoTecnica();
+  if (praticado) p[id] = { praticado: true, quando: new Date().toISOString() };
+  else delete p[id];
+  salvar(CHAVE_TEC, p);
+  return p;
+}

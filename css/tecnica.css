@@ -1,0 +1,100 @@
+/* ---------- Técnica ---------- */
+.figura { margin: 0; padding: var(--esp-3); }
+.figura figcaption { color: var(--tinta-suave); font-size: var(--texto-pequeno); margin-top: var(--esp-2); }
+.ilus { width: 100%; height: auto; display: block; color: var(--tinta); }
+.ilus-txt { font: 700 15px var(--fonte-corpo); fill: var(--tinta); }
+.ilus-txt-pq { font: 400 13px var(--fonte-corpo); fill: var(--tinta-suave); }
+.ilus-tit { font: 800 16px var(--fonte-corpo); }
+.ilus-tit.ok { fill: var(--verde); }
+.ilus-tit.erro { fill: var(--vermelho); }
+.erro-txt { fill: var(--vermelho); }
+.ilus-guia { stroke: var(--tinta-suave); stroke-width: 1.4; fill: none; stroke-dasharray: 3 3; }
+
+/* medidor de afinação */
+.medidor { display: grid; gap: var(--esp-2); }
+.medidor-escala {
+  position: relative; height: 26px; display: grid;
+  grid-template-columns: 20fr 18fr 24fr 18fr 20fr; /* proporcional a ±50 cents: erro > 30, aviso 12–30, ok ≤ 12 */
+  border-radius: 999px; overflow: hidden; border: 1px solid var(--borda-forte);
+}
+.medidor .zona-erro { background: var(--vermelho-suave); }
+.medidor .zona-aviso { background: var(--ouro-suave); }
+.medidor .zona-ok { background: var(--verde-suave); box-shadow: inset 0 0 0 2px var(--verde); }
+.agulha {
+  position: absolute; top: -2px; bottom: -2px; width: 6px; margin-left: -3px; left: 50%;
+  background: var(--tinta); border-radius: 3px;
+  transition: left 120ms var(--ease), opacity 120ms;
+}
+.medidor-rotulos { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--tinta-suave); }
+.medidor-texto { margin: 0; font-size: 1.05rem; }
+.medidor[data-estado="ok"] .m-estado { color: var(--verde); }
+.medidor[data-estado="aviso"] .m-estado { color: var(--ouro-tinta); }
+.medidor[data-estado="erro"] .m-estado { color: var(--vermelho); }
+.m-cents { color: var(--tinta-suave); font-size: var(--texto-pequeno); font-variant-numeric: tabular-nums; }
+
+/* mapa das mãos */
+.w-maos-svg { min-height: 200px; }
+.w-maos-svg .ocarina-svg { max-height: 60vh; }
+.ocarina-svg .furo { transition: opacity var(--dur-media) var(--ease); }
+.ocarina-svg.foco-esquerda .mao-direita,
+.ocarina-svg.foco-direita .mao-esquerda,
+.ocarina-svg.foco-polegares .furo:not(.tipo-polegar) { opacity: 0.2; }
+.w-maos-cols { display: grid; gap: var(--esp-3); }
+@media (min-width: 560px) { .w-maos-cols { grid-template-columns: 1fr 1fr; } }
+.w-maos-cols h3 { margin: 0 0 var(--esp-1); font-size: 1.05rem; }
+.w-maos-cols ul { margin: 0; padding-left: var(--esp-4); }
+
+/* referência de dedilhado */
+.w-ref-tit { margin: 0; font-size: 1.05rem; }
+.w-ref-grade { display: grid; gap: var(--esp-3); }
+@media (min-width: 560px) { .w-ref-grade { grid-template-columns: 1fr 1fr; } }
+.w-ref-card { display: grid; gap: var(--esp-1); justify-items: start; padding: var(--esp-3); background: var(--superficie-2); border-radius: var(--raio); }
+.w-ref-card .w-mini { width: 100%; }
+.w-ref-card .w-nome { font-size: 1.3rem; }
+
+/* nota longa */
+.w-longa-barra { position: relative; height: 16px; background: var(--superficie-2); border: 1px solid var(--borda); border-radius: 999px; overflow: hidden; }
+.w-longa-barra i { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--azul-2); }
+.w-longa-tempo { margin: 0; font-size: 1.3rem; }
+.w-longa-tempo .seg { font-size: 2rem; color: var(--azul); font-variant-numeric: tabular-nums; }
+
+/* articulação */
+.w-artic-env { width: 100%; height: auto; background: var(--superficie-2); border-radius: var(--raio-pequeno); }
+.w-artic-env .env { fill: var(--azul-suave); stroke: var(--azul-2); stroke-width: 3; stroke-linejoin: round; }
+.w-artic-silabas { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; font-weight: 800; font-size: 1.3rem; color: var(--azul); }
+.w-artic-silabas small { display: block; font-weight: 400; font-size: 0.8rem; color: var(--tinta-suave); }
+
+/* respiração */
+.w-resp-palco { display: grid; place-items: center; gap: var(--esp-3); padding: var(--esp-4) 0; background: var(--superficie-2); border-radius: var(--raio); }
+.w-resp-bola {
+  width: 140px; height: 140px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, var(--azul-2), var(--azul));
+  transform: scale(0.55);
+}
+.w-resp-fase { margin: 0; font-family: var(--fonte-titulo); font-size: 1.4rem; font-weight: 700; color: var(--azul); text-align: center; }
+.w-inline select { min-height: var(--alvo-toque); font: inherit; padding: 0 var(--esp-2); border-radius: var(--raio-pequeno); border: 1px solid var(--borda-forte); background: var(--superficie); color: var(--tinta); }
+
+/* rotina */
+.w-rotina-prog { margin: 0; font-weight: 700; color: var(--azul); }
+.w-rotina-lista { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--esp-2); }
+.w-rotina-item { display: grid; grid-template-columns: 1fr auto; gap: var(--esp-2); align-items: center; padding: var(--esp-2) var(--esp-3); background: var(--superficie-2); border-radius: var(--raio-pequeno); }
+.w-rotina-item label, .checklist label, .pr-marca { display: flex; gap: var(--esp-3); align-items: flex-start; cursor: pointer; }
+.w-rotina-item input, .checklist input, .pr-marca input { width: 24px; height: 24px; flex: none; margin-top: 2px; accent-color: var(--azul); }
+.w-rotina-item.feito b { text-decoration: line-through; opacity: 0.7; }
+
+/* checklist e praticado */
+.checklist h3 { margin: 0 0 var(--esp-2); }
+.checklist ul { list-style: none; margin: 0 0 var(--esp-2); padding: 0; display: grid; gap: var(--esp-2); }
+.praticado h2 { margin-top: 0; }
+.pr-marca { font-weight: 700; align-items: center; min-height: var(--alvo-toque); }
+.fontes-tema { margin-top: var(--esp-4); font-size: var(--texto-pequeno); color: var(--tinta-suave); }
+.fontes-tema h2 { font-size: 1.05rem; }
+
+/* diagnóstico */
+.w-diag-lista { display: grid; gap: var(--esp-2); }
+.w-diag-op { text-align: left; border-radius: var(--raio-pequeno); height: auto; padding: var(--esp-2) var(--esp-4); line-height: 1.35; }
+.w-diag-res h3 { margin-top: 0; }
+.w-diag-res h4 { margin: 0 0 var(--esp-1); }
+.w-diag-cols { display: grid; gap: var(--esp-3); margin-bottom: var(--esp-3); }
+@media (min-width: 560px) { .w-diag-cols { grid-template-columns: 1fr 1fr; } }
+.w-diag-cols ul, .w-diag-cols ol { margin: 0; padding-left: var(--esp-4); }
