@@ -152,26 +152,28 @@
       "mao": "esquerda",
       "dedo": 0,
       "tipo": "polegar",
-      "x": 242,
-      "y": 215,
+      "x": 195,
+      "y": 362,
       "r": 31,
       "origem_foto": [
         575,
         572
-      ]
+      ],
+      "desenhado_fora_do_corpo": true
     },
     "d_pol": {
       "rotulo": "Polegar direito (atrás)",
       "mao": "direita",
       "dedo": 0,
       "tipo": "polegar",
-      "x": 732,
-      "y": 235,
+      "x": 735,
+      "y": 412,
       "r": 31,
       "origem_foto": [
         555,
         1062
-      ]
+      ],
+      "desenhado_fora_do_corpo": true
     }
   }
 }
