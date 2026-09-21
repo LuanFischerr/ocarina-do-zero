@@ -1,0 +1,128 @@
+/* Design tokens — "pergaminho, pedra e azul-ocarina". Toda cor/medida do app vem daqui. */
+:root {
+  color-scheme: light;
+
+  /* superfícies (pergaminho) */
+  --bg: #f2e8cd;
+  --bg-fundo-2: #e8dab3;
+  --superficie: #faf4e2;
+  --superficie-2: #f0e4c4;
+  --borda: #c4ae7c;
+  --borda-forte: #8d7748;
+
+  /* texto */
+  --tinta: #2b2116;
+  --tinta-suave: #54452f;
+  --tinta-inversa: #fdf8ea;
+
+  /* marca */
+  --azul: #24379c;
+  --azul-2: #3b52c9;
+  --azul-suave: #dfe4ff;
+  --ouro: #b58324;
+  --ouro-tinta: #6f4d0c;
+  --ouro-suave: #f6e3b1;
+  --verde: #2b6444;
+  --verde-suave: #d5ecdc;
+  --vermelho: #9c311d;
+  --vermelho-suave: #f7d9d1;
+  --pedra: #3a4152;
+
+  /* ocarina (herói visual) */
+  --oc-1: #4552d4;
+  --oc-2: #26308f;
+  --oc-3: #121754;
+  --oc-brilho: rgba(255, 255, 255, 0.55);
+  --furo-vazio: #080a24;
+  --furo-aro: #aab6ff;
+  --dedo: #f3c98f;
+  --dedo-borda: #9a6428;
+  --dedo-mudou: #ffe27a;
+  --mao-esq: #6fd0ff;
+  --mao-dir: #ffb86b;
+
+  /* tipografia */
+  --fonte-titulo: "Palatino Linotype", "Book Antiqua", Palatino, "URW Palladio L", Georgia, serif;
+  --fonte-corpo: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fonte-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --texto-base: 1.0625rem; /* 17px: legível no celular */
+  --texto-pequeno: 0.9rem;
+  --texto-grande: 1.25rem;
+
+  /* espaçamento / forma */
+  --esp-1: 4px;
+  --esp-2: 8px;
+  --esp-3: 12px;
+  --esp-4: 16px;
+  --esp-5: 24px;
+  --esp-6: 32px;
+  --raio: 14px;
+  --raio-pequeno: 8px;
+  --sombra: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 8px 22px rgba(70, 48, 10, 0.16);
+  --alvo-toque: 44px;
+
+  /* movimento */
+  --dur-rapida: 140ms;
+  --dur-media: 260ms;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  --foco: 0 0 0 3px var(--bg), 0 0 0 6px var(--azul-2);
+}
+
+/* Tema escuro ("pedra à noite"): automático ou forçado por data-tema */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) {
+    color-scheme: dark;
+    --bg: #131826;
+    --bg-fundo-2: #0e1220;
+    --superficie: #1c2336;
+    --superficie-2: #252d45;
+    --borda: #3c4666;
+    --borda-forte: #66739c;
+    --tinta: #f0e7d1;
+    --tinta-suave: #bdb39b;
+    --tinta-inversa: #131826;
+    --azul: #9bacff;
+    --azul-2: #7f93ff;
+    --azul-suave: #232c5c;
+    --ouro: #e2b45a;
+    --ouro-tinta: #f0cf85;
+    --ouro-suave: #3a3018;
+    --verde: #7fd4a1;
+    --verde-suave: #183324;
+    --vermelho: #ff9c86;
+    --vermelho-suave: #40201a;
+    --sombra: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 8px 22px rgba(0, 0, 0, 0.45);
+    --foco: 0 0 0 3px var(--bg), 0 0 0 6px var(--azul-2);
+  }
+}
+:root[data-tema="escuro"] {
+  color-scheme: dark;
+  --bg: #131826;
+  --bg-fundo-2: #0e1220;
+  --superficie: #1c2336;
+  --superficie-2: #252d45;
+  --borda: #3c4666;
+  --borda-forte: #66739c;
+  --tinta: #f0e7d1;
+  --tinta-suave: #bdb39b;
+  --tinta-inversa: #131826;
+  --azul: #9bacff;
+  --azul-2: #7f93ff;
+  --azul-suave: #232c5c;
+  --ouro: #e2b45a;
+  --ouro-tinta: #f0cf85;
+  --ouro-suave: #3a3018;
+  --verde: #7fd4a1;
+  --verde-suave: #183324;
+  --vermelho: #ff9c86;
+  --vermelho-suave: #40201a;
+  --sombra: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 8px 22px rgba(0, 0, 0, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-rapida: 0ms;
+    --dur-media: 0ms;
+  }
+}
