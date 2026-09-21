@@ -1,0 +1,123 @@
+{
+  "_comentario": "Conteúdo das mini-lições de Fundamentos (editável). 'passos' aceita tipo 'texto' (html simples), 'destaque' (caixa de dica) e 'widget' (interação implementada em js/fundamentos/widgets.js). 'exercicio.etapas' define o mini-exercício final.",
+  "licoes": [
+    {
+      "id": "som-altura",
+      "titulo": "Som, altura e nota",
+      "resumo": "O que é som, o que significa grave e agudo, e o que é uma nota.",
+      "minutos": 5,
+      "passos": [
+        { "tipo": "texto", "html": "<p><b>Som é ar vibrando.</b> Quando você sopra a ocarina, o ar lá dentro balança bem rápido, milhares de vezes por segundo, e o seu ouvido sente isso como som.</p><p>Quantas vezes o ar balança em <b>um segundo</b> chama-se <b>frequência</b>, medida em <b>Hz</b> (hertz). Mova o controle abaixo e escute.</p>" },
+        { "tipo": "widget", "widget": "altura" },
+        { "tipo": "texto", "html": "<p>Vibração <b>lenta</b> = som <b>grave</b> (voz de trovão). Vibração <b>rápida</b> = som <b>agudo</b> (apito). Essa característica se chama <b>altura</b>. Ela não tem nada a ver com volume: um som agudo pode ser baixinho, e um grave pode ser alto.</p>" },
+        { "tipo": "destaque", "html": "<b>Nota</b> é um som com altura bem definida e estável. Por exemplo, um <b>Lá</b> é sempre cerca de 440 vibrações por segundo. A sua ocarina Alto C toca 21 notas diferentes, do <b>Lá 4 (440 Hz)</b> ao <b>Fá 6 (1397 Hz)</b>." },
+        { "tipo": "texto", "html": "<p>Na ocarina, a altura muda de dois jeitos: <b>abrindo furos</b> (mais furos abertos = mais agudo) e <b>soprando</b>. Por isso o sopro precisa ser suave e constante: soprar forte demais deixa a nota mais aguda do que deveria e desafina.</p>" }
+      ],
+      "exercicio": {
+        "titulo": "Qual som é mais agudo?",
+        "etapas": [
+          { "tipo": "altura", "instrucao": "Ouça os dois sons e escolha qual é o mais agudo.", "rodadas": 5, "aprovacao": 4 }
+        ]
+      }
+    },
+    {
+      "id": "sete-notas",
+      "titulo": "As 7 notas",
+      "resumo": "Dó Ré Mi Fá Sol Lá Si, e o mesmo em letras: C D E F G A B.",
+      "minutos": 6,
+      "passos": [
+        { "tipo": "texto", "html": "<p>A música ocidental usa <b>7 notas com nome</b>. No Brasil dizemos <b>Dó, Ré, Mi, Fá, Sol, Lá, Si</b>. Em partituras e tabelas de ocarina de outros países, aparecem <b>letras</b>: <b>C, D, E, F, G, A, B</b>. É a mesma coisa em dois idiomas.</p>" },
+        { "tipo": "destaque", "html": "<b>Dó = C · Ré = D · Mi = E · Fá = F · Sol = G · Lá = A · Si = B</b><br>Repare: a ordem das letras começa no C, não no A. Guarde: o <b>Lá</b> é o <b>A</b> (440 Hz, a nota de afinar instrumentos)." },
+        { "tipo": "widget", "widget": "notas7" },
+        { "tipo": "texto", "html": "<p>Depois do <b>Si</b>, o <b>Dó</b> volta, só que mais agudo, e o ciclo recomeça. Do Dó ao Dó seguinte, tocando as 7 notas em ordem, forma a <b>escala de Dó maior</b>, o famoso &quot;dó-ré-mi-fá-sol-lá-si-dó&quot;. Clique em <i>Tocar a escala</i> acima e cante junto.</p>" }
+      ],
+      "exercicio": {
+        "titulo": "Nome ↔ letra",
+        "etapas": [
+          { "tipo": "nota-letra", "instrucao": "Converta entre o nome brasileiro e a letra.", "rodadas": 6, "aprovacao": 5 }
+        ]
+      }
+    },
+    {
+      "id": "oitavas-acidentes",
+      "titulo": "Oitavas, sustenido e bemol",
+      "resumo": "Por que existem notas entre as notas, e o que o ♯ e o ♭ fazem.",
+      "minutos": 8,
+      "passos": [
+        { "tipo": "texto", "html": "<p><b>Oitava</b> é a distância de uma nota até a próxima nota de mesmo nome. Um Dó e o Dó seguinte soam &quot;parecidos&quot;, só que um é mais agudo. O número depois da letra diz em que oitava a nota está: <b>C5</b> e <b>C6</b>.</p>" },
+        { "tipo": "widget", "widget": "oitavas" },
+        { "tipo": "destaque", "html": "Uma oitava acima = <b>o dobro da frequência</b>. Por isso o ouvido reconhece as duas como &quot;a mesma nota&quot;." },
+        { "tipo": "texto", "html": "<p>Agora olhe um teclado de piano. As teclas <b>brancas</b> são as 7 notas que você já conhece. As <b>pretas</b> são as notas &quot;do meio&quot;. A distância entre duas teclas vizinhas (branca ou preta) é o <b>semitom</b>, o menor passo da música ocidental. Dois semitons formam um <b>tom</b>.</p><p>Repare que entre <b>Mi e Fá</b> e entre <b>Si e Dó</b> <u>não há tecla preta</u>: ali o passo já é de um semitom só.</p>" },
+        { "tipo": "widget", "widget": "teclado" },
+        { "tipo": "texto", "html": "<p><b>♯ (sustenido)</b> sobe a nota meio tom. <b>♭ (bemol)</b> desce meio tom. Então a tecla preta entre Dó e Ré é o <b>Dó♯</b> (Dó um pouco mais agudo) e também o <b>Ré♭</b> (Ré um pouco mais grave). É a mesma tecla, com dois nomes. Na ocarina, cada uma dessas notas &quot;do meio&quot; tem um dedilhado próprio, geralmente com furos cobertos de forma cruzada.</p>" }
+      ],
+      "exercicio": {
+        "titulo": "Oitavas e semitons",
+        "etapas": [
+          {
+            "tipo": "quiz",
+            "instrucao": "Responda às perguntas.",
+            "aprovacao": 5,
+            "perguntas": [
+              { "texto": "A mesma nota, uma oitava acima, tem frequência…", "opcoes": ["pela metade", "o dobro", "igual", "10 vezes maior"], "correta": 1, "explicacao": "Sim: uma oitava acima dobra a frequência (Lá 440 Hz → Lá 880 Hz)." },
+              { "texto": "Quantos semitons há entre Mi e Fá?", "opcoes": ["0", "1", "2", "3"], "correta": 1, "explicacao": "Não existe tecla preta entre Mi e Fá: é só 1 semitom." },
+              { "texto": "Dó♯ e Ré♭ são…", "opcoes": ["a mesma tecla, com dois nomes", "teclas diferentes; Ré♭ é mais grave", "teclas diferentes; Dó♯ é mais grave", "notas que não existem"], "correta": 0, "explicacao": "São enarmônicas: mesmo som, dois nomes." },
+              { "texto": "O bemol (♭) faz a nota…", "opcoes": ["subir meio tom", "descer meio tom", "subir um tom", "ficar mais forte"], "correta": 1, "explicacao": "Bemol desce meio tom; sustenido sobe meio tom." },
+              { "texto": "Qual é mais aguda: Lá 4 ou Lá 5?", "opcoes": ["Lá 4", "Lá 5", "são iguais"], "correta": 1, "explicacao": "O número maior indica a oitava mais aguda." },
+              { "texto": "Quantos semitons há entre Dó e Ré?", "opcoes": ["1", "2", "3", "4"], "correta": 1, "explicacao": "Dó → Dó♯ → Ré: 2 semitons, que é 1 tom inteiro." }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ritmo",
+      "titulo": "Ritmo: pulso, durações e pausas",
+      "resumo": "A batida que sustenta a música, quanto cada nota dura e o valor do silêncio.",
+      "minutos": 8,
+      "passos": [
+        { "tipo": "texto", "html": "<p>Além de <i>qual</i> nota tocar, é preciso saber <i>por quanto tempo</i>. Toda música tem um <b>pulso</b>: uma batida regular, como o pé marcando o ritmo. A velocidade do pulso se chama <b>andamento</b> e é medida em <b>BPM</b> (batidas por minuto).</p>" },
+        { "tipo": "widget", "widget": "metronomo" },
+        { "tipo": "texto", "html": "<p>Cada figura de nota diz quantas batidas ela dura. A referência é a <b>semínima</b>, que vale <b>1 tempo</b>. As outras são frações ou múltiplos dela:</p>" },
+        { "tipo": "widget", "widget": "duracoes" },
+        { "tipo": "destaque", "html": "<b>Pausa</b> é o silêncio com duração marcada. Cada nota tem sua pausa equivalente, com a mesma duração. Pausar não é &quot;esquecer de tocar&quot;: é fazer parte da música. E na ocarina é a hora de <b>respirar</b>." },
+        { "tipo": "texto", "html": "<p>Dica prática: comece <b>lento</b>. É muito melhor tocar devagar e no tempo do que rápido e tropeçando. Você vai poder controlar o andamento no modo guiado, mais à frente.</p>" }
+      ],
+      "exercicio": {
+        "titulo": "Perguntas e teste de pulso",
+        "etapas": [
+          {
+            "tipo": "quiz",
+            "instrucao": "Responda às perguntas.",
+            "aprovacao": 3,
+            "perguntas": [
+              { "texto": "Quantos tempos dura uma mínima?", "opcoes": ["1", "2", "4", "meio"], "correta": 1, "explicacao": "Mínima = 2 tempos (duas semínimas)." },
+              { "texto": "Duas colcheias juntas equivalem a…", "opcoes": ["uma mínima", "uma semínima", "uma semibreve", "uma semicolcheia"], "correta": 1, "explicacao": "Cada colcheia vale meio tempo; duas juntas dão 1 tempo, uma semínima." },
+              { "texto": "O que é uma pausa?", "opcoes": ["Um erro na partitura", "Um silêncio com duração marcada", "Uma nota mais forte", "O fim da música"], "correta": 1, "explicacao": "Pausa é silêncio com duração, tão importante quanto as notas." },
+              { "texto": "A 60 BPM, quanto dura um tempo?", "opcoes": ["meio segundo", "1 segundo", "2 segundos", "1 minuto"], "correta": 1, "explicacao": "60 batidas por minuto = 1 batida por segundo." }
+            ]
+          },
+          { "tipo": "ritmo-toque", "instrucao": "Toque no botão junto com cada &quot;tic&quot; do metrônomo." }
+        ]
+      }
+    },
+    {
+      "id": "pauta",
+      "titulo": "A pauta, sem susto",
+      "resumo": "Uma introdução leve: onde a nota mora e como a altura aparece no papel.",
+      "minutos": 6,
+      "passos": [
+        { "tipo": "destaque", "html": "<b>Você não precisa ler partitura para tocar ocarina.</b> Este app mostra letras e dedilhados. A pauta entra só para você entender uma ideia simples: <b>quanto mais alta a nota no papel, mais aguda ela soa</b>." },
+        { "tipo": "texto", "html": "<p>A <b>pauta</b> tem <b>5 linhas</b> e os <b>4 espaços</b> entre elas. Cada linha ou espaço é uma nota diferente, subindo de baixo para cima. A <b>clave de Sol</b> (o símbolo no começo) marca onde o <b>Sol</b> mora: ela se enrola na <b>2ª linha</b> de baixo para cima. Daí para frente, tudo se organiza em ordem.</p>" },
+        { "tipo": "widget", "widget": "pauta" },
+        { "tipo": "texto", "html": "<p>Quando a nota passa do limite da pauta, ganha <b>linhas suplementares</b>: pequenos tracinhos que estendem a pauta. A sua ocarina vai do <b>Lá 4</b> (no segundo espaço, embaixo) até o <b>Fá 6</b> (com 3 linhas suplementares em cima). O sustenido (♯) aparece antes da nota.</p>" }
+      ],
+      "exercicio": {
+        "titulo": "Que nota é esta?",
+        "etapas": [
+          { "tipo": "pauta", "instrucao": "Veja a nota na pauta e escolha o nome dela.", "rodadas": 6, "aprovacao": 5 }
+        ]
+      }
+    }
+  ]
+}
