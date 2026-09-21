@@ -9,12 +9,14 @@ function el(tag, attrs = {}, ...filhos) {
 }
 
 const ROTULO_CURTO = { sub_a: 'A', sub_b: 'B' };
+let contadorSVG = 0; // ids únicos de gradiente/filtro (a tabela desenha dezenas de miniaturas)
 
 /**
  * @param layout  conteúdo de ocarina-layout.json
- * @param opcoes  { interativo, aoAlternar(id), orientacao: 'horizontal' | 'vertical' }
+ * @param opcoes  { interativo, aoAlternar(id), orientacao: 'horizontal' | 'vertical', miniatura }
  */
-export function criarOcarinaSVG(layout, { interativo = false, aoAlternar = () => {}, orientacao = 'horizontal' } = {}) {
+export function criarOcarinaSVG(layout, { interativo = false, aoAlternar = () => {}, orientacao = 'horizontal', miniatura = false, descricao = null } = {}) {
+  const uid = ++contadorSVG;
   const [vx, vy, vw, vh] = layout.viewBox;
   const vertical = orientacao === 'vertical';
   const caixa = vertical ? [0, 0, vh, vw] : [vx, vy, vw, vh];
@@ -23,16 +25,16 @@ export function criarOcarinaSVG(layout, { interativo = false, aoAlternar = () =>
 
   const svg = el('svg', {
     viewBox: caixa.join(' '),
-    class: 'ocarina-svg',
+    class: miniatura ? 'ocarina-svg mini' : 'ocarina-svg',
     role: interativo ? 'group' : 'img',
-    'aria-label': interativo
+    'aria-label': descricao ?? (interativo
       ? 'Ocarina de 12 furos. Toque nos furos para cobrir ou abrir.'
-      : 'Ocarina de 12 furos com o dedilhado da nota escolhida.',
+      : 'Ocarina de 12 furos com o dedilhado da nota escolhida.'),
   });
 
   svg.append(el('defs', {},
     (() => {
-      const g = el('linearGradient', { id: 'oc-grad', x1: '0', y1: '0', x2: '1', y2: '1' });
+      const g = el('linearGradient', { id: `oc-grad-${uid}`, x1: '0', y1: '0', x2: '1', y2: '1' });
       g.append(
         el('stop', { offset: '0', 'stop-color': 'var(--oc-1)' }),
         el('stop', { offset: '0.55', 'stop-color': 'var(--oc-2)' }),
@@ -41,7 +43,7 @@ export function criarOcarinaSVG(layout, { interativo = false, aoAlternar = () =>
       return g;
     })(),
     (() => {
-      const f = el('filter', { id: 'oc-sombra', x: '-10%', y: '-10%', width: '125%', height: '130%' });
+      const f = el('filter', { id: `oc-sombra-${uid}`, x: '-10%', y: '-10%', width: '125%', height: '130%' });
       f.append(el('feDropShadow', { dx: '0', dy: '14', stdDeviation: '14', 'flood-color': '#0a0d3a', 'flood-opacity': '0.35' }));
       return f;
     })(),
@@ -51,9 +53,9 @@ export function criarOcarinaSVG(layout, { interativo = false, aoAlternar = () =>
   svg.append(raiz);
 
   // corpo (contorno traçado sobre a foto, em coordenadas da foto -> transform do layout)
-  const corpo = el('g', { transform: layout.corpo.transform, filter: 'url(#oc-sombra)' });
+  const corpo = el('g', { transform: layout.corpo.transform, ...(miniatura ? {} : { filter: `url(#oc-sombra-${uid})` }) });
   corpo.append(
-    el('path', { d: layout.corpo.path, class: 'oc-corpo', fill: 'url(#oc-grad)' }),
+    el('path', { d: layout.corpo.path, class: 'oc-corpo', fill: `url(#oc-grad-${uid})` }),
     el('path', { d: layout.corpo.brilho, class: 'oc-brilho', fill: 'none' }),
   );
   raiz.append(corpo);
@@ -78,9 +80,12 @@ export function criarOcarinaSVG(layout, { interativo = false, aoAlternar = () =>
     if (vertical) txtAttrs.transform = 'rotate(-90)';
     const rotulo = el('text', txtAttrs);
     rotulo.textContent = f.tipo === 'sub' ? ROTULO_CURTO[id] : f.tipo === 'polegar' ? 'P' : String(f.dedo);
-    const titulo = el('title');
-    titulo.textContent = f.rotulo;
-    g.append(titulo, hit, aro, vazio, dedo, luz, rotulo);
+    if (!miniatura) {
+      const titulo = el('title');
+      titulo.textContent = f.rotulo;
+      g.append(titulo);
+    }
+    g.append(hit, aro, vazio, dedo, luz, rotulo);
     if (verso) g.classList.add('furo-verso');
 
     if (interativo) {
