@@ -17,6 +17,7 @@ export function registrarLicao(id, { acertos, total, aprovada }) {
     quando: new Date().toISOString(),
   };
   salvar(CHAVE, p);
+  marcarDia();
   return p[id];
 }
 
@@ -32,6 +33,7 @@ export function marcarTecnica(id, praticado) {
   if (praticado) p[id] = { praticado: true, quando: new Date().toISOString() };
   else delete p[id];
   salvar(CHAVE_TEC, p);
+  if (praticado) marcarDia();
   return p;
 }
 
@@ -53,6 +55,7 @@ export function registrarNota(id, acertou) {
   n.revisar = new Date(Date.now() + INTERVALOS_DIAS[n.caixa] * 86400000).toISOString();
   est[id] = n;
   salvar(CHAVE_NOTAS, est);
+  marcarDia();
   return n;
 }
 
@@ -83,5 +86,78 @@ export function registrarMusica(id, { pct, andamentoPct, ok, total }) {
   if (pct >= 85 && andamentoPct >= 90) m.dominada = true;
   p[id] = m;
   salvar(CHAVE_MUS, p);
+  marcarDia();
   return m;
+}
+
+// ---- Treinos do modo guiado ----
+const CHAVE_TREINOS = 'progresso.treinos';
+
+export function progressoTreinos() {
+  return ler(CHAVE_TREINOS, {}) || {};
+}
+
+export function registrarTreino(id, { pct, andamentoPct, ok, total }) {
+  const p = progressoTreinos();
+  const t = p[id] ?? { tentativas: 0, melhorPct: 0, melhorAndamento: 0 };
+  t.tentativas++;
+  t.ultima = new Date().toISOString();
+  if (pct > t.melhorPct || (pct === t.melhorPct && andamentoPct > t.melhorAndamento)) {
+    t.melhorPct = pct; t.melhorAndamento = andamentoPct; t.melhorOk = ok; t.melhorTotal = total;
+  }
+  p[id] = t;
+  salvar(CHAVE_TREINOS, p);
+  marcarDia();
+  return t;
+}
+
+// ---- Uso dos modos de prática (para a trilha sugerida) ----
+const CHAVE_USOS = 'progresso.usos';
+
+export function usos() {
+  return ler(CHAVE_USOS, {}) || {};
+}
+
+export function registrarUso(chave) {
+  const u = usos();
+  const x = u[chave] ?? { vezes: 0 };
+  x.vezes++;
+  x.ultima = new Date().toISOString();
+  u[chave] = x;
+  salvar(CHAVE_USOS, u);
+  marcarDia();
+}
+
+// ---- Dias de estudo e sequência ----
+const CHAVE_DIAS = 'progresso.dias';
+const dia = (d = new Date()) => new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+
+export function marcarDia() {
+  const dias = ler(CHAVE_DIAS, []) || [];
+  const hoje = dia();
+  if (!dias.includes(hoje)) { dias.push(hoje); salvar(CHAVE_DIAS, dias.slice(-400)); }
+}
+
+export function diasDeEstudo() {
+  const dias = new Set(ler(CHAVE_DIAS, []) || []);
+  let seq = 0;
+  const d = new Date();
+  // a sequência conta a partir de hoje (ou de ontem, se hoje ainda não estudou)
+  if (!dias.has(dia(d))) d.setDate(d.getDate() - 1);
+  while (dias.has(dia(d))) { seq++; d.setDate(d.getDate() - 1); }
+  return { total: dias.size, sequencia: seq, hoje: dias.has(dia()) };
+}
+
+// ---- Classificação das notas (domina / aprendendo / atenção) ----
+/** tipo: nao-vista | dominada | aprendendo | atencao */
+export function classificarNota(id, est = estatisticasNotas()) {
+  const n = est[id];
+  if (!n) return { tipo: 'nao-vista', tentativas: 0, taxa: null };
+  const tentativas = n.acertos + n.erros;
+  const taxa = tentativas ? n.acertos / tentativas : null;
+  const vencida = new Date(n.revisar) <= new Date();
+  let tipo = 'aprendendo';
+  if (tentativas >= 3 && taxa < 0.6) tipo = 'atencao';
+  else if (n.acertos >= 3 && n.caixa >= 3) tipo = 'dominada';
+  return { tipo, tentativas, taxa, vencida, caixa: n.caixa, erros: n.erros, acertos: n.acertos };
 }
