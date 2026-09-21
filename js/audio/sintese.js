@@ -18,6 +18,11 @@ export function garantirAudio() {
   return ctx;
 }
 
+/** Contexto de áudio compartilhado (o microfone se conecta a ele). Só existe depois de um gesto do usuário. */
+export function contextoAudio() {
+  return ctx;
+}
+
 export function definirVolume(v) {
   volume = Math.min(1, Math.max(0, v));
   if (mestre) mestre.gain.setTargetAtTime(volume, ctx.currentTime, 0.02);
