@@ -1,0 +1,819 @@
+{
+  "_comentario": "Repertório (editável). \"sequencia\" = notas em ordem na ocarina Alto C; \"notas\" = a mesma sequência com durações em tempos (n: null = pausa). \"verificada\": true = sequência conferida em mais de uma fonte; \"ritmo_verificado\": false = ritmo simplificado por mim. Só notas sintetizadas: nenhum áudio, sprite ou arte da Nintendo. As melodias e os nomes pertencem aos seus titulares; aqui há só as sequências curtas de notas, para estudo.",
+  "divergencias": [
+    "Canção da Epona: Thonky diz Cima-Direita-Esquerda; Gamertag Mythras e PlayByFingering dizem Cima-Esquerda-Direita (D6 B5 A5). Adotado o segundo."
+  ],
+  "mapeamento_botoes": {
+    "descricao": "Botões do controle do Nintendo 64 no jogo e a nota correspondente. As letras (D, F, A, B, D) vêm das fontes. A oitava é a usada nas tabs de ocarina de 12 furos Alto C (D5 F5 A5 B5 D6), que cabe na extensão A4–F6.",
+    "A": "D5",
+    "C▼": "F5",
+    "C▶": "A5",
+    "C◀": "B5",
+    "C▲": "D6"
+  },
+  "fontes": {
+    "thonky": {
+      "titulo": "Thonky — Ocarina Song List (Ocarina of Time)",
+      "url": "https://www.thonky.com/ocarina-of-time/ocarina-songs",
+      "usado_para": "sequências de botões das 12 canções"
+    },
+    "gamertag": {
+      "titulo": "Gamertag Mythras — Ocarina of Time Songs Guide",
+      "url": "https://gamertagmythras.com/blog/zelda-ocarina-of-time/ocarina-of-time-songs-guide",
+      "usado_para": "sequências de botões das 12 canções (concordam com a Thonky em 11; diverge só na Epona)"
+    },
+    "pbf": {
+      "titulo": "PlayByFingering — Zelda ocarina songs (12-hole, C fingering)",
+      "url": "https://www.playbyfingering.com/learn/zelda-ocarina-songs",
+      "usado_para": "notas reais na ocarina de 12 furos (confirma D5=A, F5=C▼, A5=C▶, B5=C◀, D6=C▲ em 4 canções)"
+    },
+    "zeldawiki": {
+      "titulo": "Zelda Wiki — Ocarina of Time (Item)",
+      "url": "https://zeldawiki.wiki/wiki/Ocarina_of_Time_(Item)",
+      "usado_para": "como o ocarina do jogo produz as notas (D, B, A, F naturais; alterações por Z/R/analógico)"
+    }
+  },
+  "musicas": [
+    {
+      "id": "cancao-do-tempo",
+      "titulo": "Canção do Tempo",
+      "titulo_original": "Song of Time",
+      "jogo": "The Legend of Zelda: Ocarina of Time",
+      "nivel": 1,
+      "bpm": 60,
+      "uso_no_jogo": "Abre a Porta do Tempo e move os blocos do Tempo nos calabouços.",
+      "botoes_jogo": [
+        "C▶",
+        "A",
+        "C▼",
+        "C▶",
+        "A",
+        "C▼"
+      ],
+      "sequencia": [
+        "A5",
+        "D5",
+        "F5",
+        "A5",
+        "D5",
+        "F5"
+      ],
+      "notas": [
+        {
+          "n": "A5",
+          "t": 1
+        },
+        {
+          "n": "D5",
+          "t": 1
+        },
+        {
+          "n": "F5",
+          "t": 2
+        },
+        {
+          "n": null,
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 1
+        },
+        {
+          "n": "D5",
+          "t": 1
+        },
+        {
+          "n": "F5",
+          "t": 3
+        }
+      ],
+      "verificada": true,
+      "fontes": [
+        "thonky",
+        "gamertag",
+        "pbf",
+        "zeldawiki"
+      ],
+      "ritmo_verificado": false,
+      "observacao_ritmo": "No jogo essas canções são definidas só pelas notas. O ritmo aqui é SIMPLIFICADO para estudo (1 tempo por nota, última nota de cada frase mais longa, pausa entre frases). Não é a métrica da música original."
+    },
+    {
+      "id": "cancao-da-saria",
+      "titulo": "Canção da Saria",
+      "titulo_original": "Saria's Song",
+      "jogo": "The Legend of Zelda: Ocarina of Time",
+      "nivel": 1,
+      "bpm": 60,
+      "uso_no_jogo": "A canção que a Saria ensina a Link na Floresta Sagrada.",
+      "botoes_jogo": [
+        "C▼",
+        "C▶",
+        "C◀",
+        "C▼",
+        "C▶",
+        "C◀"
+      ],
+      "sequencia": [
+        "F5",
+        "A5",
+        "B5",
+        "F5",
+        "A5",
+        "B5"
+      ],
+      "notas": [
+        {
+          "n": "F5",
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 1
+        },
+        {
+          "n": "B5",
+          "t": 2
+        },
+        {
+          "n": null,
+          "t": 1
+        },
+        {
+          "n": "F5",
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 1
+        },
+        {
+          "n": "B5",
+          "t": 3
+        }
+      ],
+      "verificada": true,
+      "fontes": [
+        "thonky",
+        "gamertag",
+        "pbf",
+        "zeldawiki"
+      ],
+      "ritmo_verificado": false,
+      "observacao_ritmo": "No jogo essas canções são definidas só pelas notas. O ritmo aqui é SIMPLIFICADO para estudo (1 tempo por nota, última nota de cada frase mais longa, pausa entre frases). Não é a métrica da música original."
+    },
+    {
+      "id": "cancao-de-zelda",
+      "titulo": "Canção de Zelda",
+      "titulo_original": "Zelda's Lullaby",
+      "jogo": "The Legend of Zelda: Ocarina of Time",
+      "nivel": 2,
+      "bpm": 60,
+      "uso_no_jogo": "A melodia da família real de Hyrule; funciona diante do símbolo da Triforce.",
+      "botoes_jogo": [
+        "C◀",
+        "C▲",
+        "C▶",
+        "C◀",
+        "C▲",
+        "C▶"
+      ],
+      "sequencia": [
+        "B5",
+        "D6",
+        "A5",
+        "B5",
+        "D6",
+        "A5"
+      ],
+      "notas": [
+        {
+          "n": "B5",
+          "t": 1
+        },
+        {
+          "n": "D6",
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 2
+        },
+        {
+          "n": null,
+          "t": 1
+        },
+        {
+          "n": "B5",
+          "t": 1
+        },
+        {
+          "n": "D6",
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 3
+        }
+      ],
+      "verificada": true,
+      "fontes": [
+        "thonky",
+        "gamertag",
+        "pbf",
+        "zeldawiki"
+      ],
+      "ritmo_verificado": false,
+      "observacao_ritmo": "No jogo essas canções são definidas só pelas notas. O ritmo aqui é SIMPLIFICADO para estudo (1 tempo por nota, última nota de cada frase mais longa, pausa entre frases). Não é a métrica da música original."
+    },
+    {
+      "id": "cancao-da-epona",
+      "titulo": "Canção da Epona",
+      "titulo_original": "Epona's Song",
+      "jogo": "The Legend of Zelda: Ocarina of Time",
+      "nivel": 2,
+      "bpm": 60,
+      "uso_no_jogo": "Chama a égua Epona.",
+      "botoes_jogo": [
+        "C▲",
+        "C◀",
+        "C▶",
+        "C▲",
+        "C◀",
+        "C▶"
+      ],
+      "sequencia": [
+        "D6",
+        "B5",
+        "A5",
+        "D6",
+        "B5",
+        "A5"
+      ],
+      "notas": [
+        {
+          "n": "D6",
+          "t": 1
+        },
+        {
+          "n": "B5",
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 2
+        },
+        {
+          "n": null,
+          "t": 1
+        },
+        {
+          "n": "D6",
+          "t": 1
+        },
+        {
+          "n": "B5",
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 3
+        }
+      ],
+      "verificada": true,
+      "divergencia": "A Thonky lista Epona como URLURL (Cima, Direita, Esquerda), mas a Gamertag Mythras (C-Cima, C-Esquerda, C-Direita) e a PlayByFingering (notas D6 B5 A5) concordam em Cima, Esquerda, Direita. Adotei a segunda versão (2 de 3 fontes, e as notas reais batem).",
+      "fontes": [
+        "thonky",
+        "gamertag",
+        "pbf",
+        "zeldawiki"
+      ],
+      "ritmo_verificado": false,
+      "observacao_ritmo": "No jogo essas canções são definidas só pelas notas. O ritmo aqui é SIMPLIFICADO para estudo (1 tempo por nota, última nota de cada frase mais longa, pausa entre frases). Não é a métrica da música original."
+    },
+    {
+      "id": "cancao-do-sol",
+      "titulo": "Canção do Sol",
+      "titulo_original": "Sun's Song",
+      "jogo": "The Legend of Zelda: Ocarina of Time",
+      "nivel": 2,
+      "bpm": 60,
+      "uso_no_jogo": "Muda entre o dia e a noite.",
+      "botoes_jogo": [
+        "C▶",
+        "C▼",
+        "C▲",
+        "C▶",
+        "C▼",
+        "C▲"
+      ],
+      "sequencia": [
+        "A5",
+        "F5",
+        "D6",
+        "A5",
+        "F5",
+        "D6"
+      ],
+      "notas": [
+        {
+          "n": "A5",
+          "t": 1
+        },
+        {
+          "n": "F5",
+          "t": 1
+        },
+        {
+          "n": "D6",
+          "t": 2
+        },
+        {
+          "n": null,
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 1
+        },
+        {
+          "n": "F5",
+          "t": 1
+        },
+        {
+          "n": "D6",
+          "t": 3
+        }
+      ],
+      "verificada": true,
+      "fontes": [
+        "thonky",
+        "gamertag",
+        "pbf",
+        "zeldawiki"
+      ],
+      "ritmo_verificado": false,
+      "observacao_ritmo": "No jogo essas canções são definidas só pelas notas. O ritmo aqui é SIMPLIFICADO para estudo (1 tempo por nota, última nota de cada frase mais longa, pausa entre frases). Não é a métrica da música original."
+    },
+    {
+      "id": "serenata-da-agua",
+      "titulo": "Serenata da Água",
+      "titulo_original": "Serenade of Water",
+      "jogo": "The Legend of Zelda: Ocarina of Time",
+      "nivel": 2,
+      "bpm": 60,
+      "uso_no_jogo": "Canção de teletransporte para a região do Templo da Água.",
+      "botoes_jogo": [
+        "A",
+        "C▼",
+        "C▶",
+        "C▶",
+        "C◀"
+      ],
+      "sequencia": [
+        "D5",
+        "F5",
+        "A5",
+        "A5",
+        "B5"
+      ],
+      "notas": [
+        {
+          "n": "D5",
+          "t": 1
+        },
+        {
+          "n": "F5",
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 2
+        },
+        {
+          "n": null,
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 1
+        },
+        {
+          "n": "B5",
+          "t": 3
+        }
+      ],
+      "verificada": true,
+      "fontes": [
+        "thonky",
+        "gamertag",
+        "pbf",
+        "zeldawiki"
+      ],
+      "ritmo_verificado": false,
+      "observacao_ritmo": "No jogo essas canções são definidas só pelas notas. O ritmo aqui é SIMPLIFICADO para estudo (1 tempo por nota, última nota de cada frase mais longa, pausa entre frases). Não é a métrica da música original."
+    },
+    {
+      "id": "requiem-do-espirito",
+      "titulo": "Réquiem do Espírito",
+      "titulo_original": "Requiem of Spirit",
+      "jogo": "The Legend of Zelda: Ocarina of Time",
+      "nivel": 2,
+      "bpm": 60,
+      "uso_no_jogo": "Canção de teletransporte para a região do Templo do Espírito.",
+      "botoes_jogo": [
+        "A",
+        "C▼",
+        "A",
+        "C▶",
+        "C▼",
+        "A"
+      ],
+      "sequencia": [
+        "D5",
+        "F5",
+        "D5",
+        "A5",
+        "F5",
+        "D5"
+      ],
+      "notas": [
+        {
+          "n": "D5",
+          "t": 1
+        },
+        {
+          "n": "F5",
+          "t": 1
+        },
+        {
+          "n": "D5",
+          "t": 2
+        },
+        {
+          "n": null,
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 1
+        },
+        {
+          "n": "F5",
+          "t": 1
+        },
+        {
+          "n": "D5",
+          "t": 3
+        }
+      ],
+      "verificada": true,
+      "fontes": [
+        "thonky",
+        "gamertag",
+        "pbf",
+        "zeldawiki"
+      ],
+      "ritmo_verificado": false,
+      "observacao_ritmo": "No jogo essas canções são definidas só pelas notas. O ritmo aqui é SIMPLIFICADO para estudo (1 tempo por nota, última nota de cada frase mais longa, pausa entre frases). Não é a métrica da música original."
+    },
+    {
+      "id": "cancao-da-tempestade",
+      "titulo": "Canção da Tempestade",
+      "titulo_original": "Song of Storms",
+      "jogo": "The Legend of Zelda: Ocarina of Time",
+      "nivel": 3,
+      "bpm": 50,
+      "uso_no_jogo": "Traz chuva e tempestade (por exemplo, para esvaziar o poço do moinho).",
+      "botoes_jogo": [
+        "A",
+        "C▼",
+        "C▲",
+        "A",
+        "C▼",
+        "C▲"
+      ],
+      "sequencia": [
+        "D5",
+        "F5",
+        "D6",
+        "D5",
+        "F5",
+        "D6"
+      ],
+      "notas": [
+        {
+          "n": "D5",
+          "t": 1
+        },
+        {
+          "n": "F5",
+          "t": 1
+        },
+        {
+          "n": "D6",
+          "t": 2
+        },
+        {
+          "n": null,
+          "t": 1
+        },
+        {
+          "n": "D5",
+          "t": 1
+        },
+        {
+          "n": "F5",
+          "t": 1
+        },
+        {
+          "n": "D6",
+          "t": 3
+        }
+      ],
+      "verificada": true,
+      "fontes": [
+        "thonky",
+        "gamertag",
+        "pbf",
+        "zeldawiki"
+      ],
+      "ritmo_verificado": false,
+      "observacao_ritmo": "No jogo essas canções são definidas só pelas notas. O ritmo aqui é SIMPLIFICADO para estudo (1 tempo por nota, última nota de cada frase mais longa, pausa entre frases). Não é a métrica da música original."
+    },
+    {
+      "id": "minueto-da-floresta",
+      "titulo": "Minueto da Floresta",
+      "titulo_original": "Minuet of Forest",
+      "jogo": "The Legend of Zelda: Ocarina of Time",
+      "nivel": 3,
+      "bpm": 50,
+      "uso_no_jogo": "Canção de teletransporte para a região do Templo da Floresta.",
+      "botoes_jogo": [
+        "A",
+        "C▲",
+        "C◀",
+        "C▶",
+        "C◀",
+        "C▶"
+      ],
+      "sequencia": [
+        "D5",
+        "D6",
+        "B5",
+        "A5",
+        "B5",
+        "A5"
+      ],
+      "notas": [
+        {
+          "n": "D5",
+          "t": 1
+        },
+        {
+          "n": "D6",
+          "t": 1
+        },
+        {
+          "n": "B5",
+          "t": 2
+        },
+        {
+          "n": null,
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 1
+        },
+        {
+          "n": "B5",
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 3
+        }
+      ],
+      "verificada": true,
+      "fontes": [
+        "thonky",
+        "gamertag",
+        "pbf",
+        "zeldawiki"
+      ],
+      "ritmo_verificado": false,
+      "observacao_ritmo": "No jogo essas canções são definidas só pelas notas. O ritmo aqui é SIMPLIFICADO para estudo (1 tempo por nota, última nota de cada frase mais longa, pausa entre frases). Não é a métrica da música original."
+    },
+    {
+      "id": "noturno-da-sombra",
+      "titulo": "Noturno da Sombra",
+      "titulo_original": "Nocturne of Shadow",
+      "jogo": "The Legend of Zelda: Ocarina of Time",
+      "nivel": 3,
+      "bpm": 50,
+      "uso_no_jogo": "Canção de teletransporte para a região do Templo da Sombra.",
+      "botoes_jogo": [
+        "C◀",
+        "C▶",
+        "C▶",
+        "A",
+        "C◀",
+        "C▶",
+        "C▼"
+      ],
+      "sequencia": [
+        "B5",
+        "A5",
+        "A5",
+        "D5",
+        "B5",
+        "A5",
+        "F5"
+      ],
+      "notas": [
+        {
+          "n": "B5",
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 1
+        },
+        {
+          "n": "D5",
+          "t": 2
+        },
+        {
+          "n": null,
+          "t": 1
+        },
+        {
+          "n": "B5",
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 1
+        },
+        {
+          "n": "F5",
+          "t": 3
+        }
+      ],
+      "verificada": true,
+      "fontes": [
+        "thonky",
+        "gamertag",
+        "pbf",
+        "zeldawiki"
+      ],
+      "ritmo_verificado": false,
+      "observacao_ritmo": "No jogo essas canções são definidas só pelas notas. O ritmo aqui é SIMPLIFICADO para estudo (1 tempo por nota, última nota de cada frase mais longa, pausa entre frases). Não é a métrica da música original."
+    },
+    {
+      "id": "preludio-da-luz",
+      "titulo": "Prelúdio da Luz",
+      "titulo_original": "Prelude of Light",
+      "jogo": "The Legend of Zelda: Ocarina of Time",
+      "nivel": 3,
+      "bpm": 50,
+      "uso_no_jogo": "Canção de teletransporte para a região do Templo da Luz.",
+      "botoes_jogo": [
+        "C▲",
+        "C▶",
+        "C▲",
+        "C▶",
+        "C◀",
+        "C▲"
+      ],
+      "sequencia": [
+        "D6",
+        "A5",
+        "D6",
+        "A5",
+        "B5",
+        "D6"
+      ],
+      "notas": [
+        {
+          "n": "D6",
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 1
+        },
+        {
+          "n": "D6",
+          "t": 2
+        },
+        {
+          "n": null,
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 1
+        },
+        {
+          "n": "B5",
+          "t": 1
+        },
+        {
+          "n": "D6",
+          "t": 3
+        }
+      ],
+      "verificada": true,
+      "fontes": [
+        "thonky",
+        "gamertag",
+        "pbf",
+        "zeldawiki"
+      ],
+      "ritmo_verificado": false,
+      "observacao_ritmo": "No jogo essas canções são definidas só pelas notas. O ritmo aqui é SIMPLIFICADO para estudo (1 tempo por nota, última nota de cada frase mais longa, pausa entre frases). Não é a métrica da música original."
+    },
+    {
+      "id": "bolero-do-fogo",
+      "titulo": "Bolero do Fogo",
+      "titulo_original": "Bolero of Fire",
+      "jogo": "The Legend of Zelda: Ocarina of Time",
+      "nivel": 3,
+      "bpm": 50,
+      "uso_no_jogo": "Canção de teletransporte para a região do Templo do Fogo.",
+      "botoes_jogo": [
+        "C▼",
+        "A",
+        "C▼",
+        "A",
+        "C▶",
+        "C▼",
+        "C▶",
+        "C▼"
+      ],
+      "sequencia": [
+        "F5",
+        "D5",
+        "F5",
+        "D5",
+        "A5",
+        "F5",
+        "A5",
+        "F5"
+      ],
+      "notas": [
+        {
+          "n": "F5",
+          "t": 1
+        },
+        {
+          "n": "D5",
+          "t": 1
+        },
+        {
+          "n": "F5",
+          "t": 1
+        },
+        {
+          "n": "D5",
+          "t": 2
+        },
+        {
+          "n": null,
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 1
+        },
+        {
+          "n": "F5",
+          "t": 1
+        },
+        {
+          "n": "A5",
+          "t": 1
+        },
+        {
+          "n": "F5",
+          "t": 3
+        }
+      ],
+      "verificada": true,
+      "fontes": [
+        "thonky",
+        "gamertag",
+        "pbf",
+        "zeldawiki"
+      ],
+      "ritmo_verificado": false,
+      "observacao_ritmo": "No jogo essas canções são definidas só pelas notas. O ritmo aqui é SIMPLIFICADO para estudo (1 tempo por nota, última nota de cada frase mais longa, pausa entre frases). Não é a métrica da música original."
+    }
+  ]
+}
