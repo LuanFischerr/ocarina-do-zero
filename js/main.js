@@ -1,4 +1,4 @@
-// Ponto de entrada: roteador por hash (#/inicio, #/ocarina/G5, #/fundamentos/ritmo, #/tecnica/sopro, #/pratica/guiado, #/repertorio/cancao-do-tempo, #/tabela) — funciona em GitHub Pages sem configuração.
+// Ponto de entrada: roteador por hash (#/inicio, #/ocarina/G5, #/fundamentos/ritmo, #/tecnica/sopro, #/pratica/guiado, #/repertorio/cancao-do-tempo, #/progresso, #/tabela) — funciona em GitHub Pages sem configuração.
 import { ler, salvar } from './estado.js';
 
 const ROTAS = {
@@ -8,9 +8,9 @@ const ROTAS = {
   tecnica: { titulo: 'Técnica', carregar: () => import('./modulos/tecnica.js') },
   repertorio: { titulo: 'Repertório', carregar: () => import('./modulos/repertorio.js') },
   pratica: { titulo: 'Prática', carregar: () => import('./modulos/pratica.js') },
+  progresso: { titulo: 'Progresso', carregar: () => import('./modulos/progresso.js') },
   tabela: { titulo: 'Tabela', carregar: () => import('./modulos/tabela.js') },
 };
-const EM_BREVE = ['Progresso'];
 
 const conteudo = document.getElementById('conteudo');
 const nav = document.getElementById('nav');
@@ -18,8 +18,7 @@ let limpar = null;
 let token = 0;
 
 nav.innerHTML =
-  Object.entries(ROTAS).map(([k, r]) => `<a href="#/${k}" data-rota="${k}">${r.titulo}</a>`).join('') +
-  EM_BREVE.map(t => `<span aria-disabled="true" title="Em breve">${t}</span>`).join('');
+  Object.entries(ROTAS).map(([k, r]) => `<a href="#/${k}" data-rota="${k}">${r.titulo}</a>`).join('');
 
 async function navegar() {
   const [rota, ...params] = (location.hash.replace(/^#\/?/, '') || 'inicio').split('/').map((p) => {

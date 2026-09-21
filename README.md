@@ -3,7 +3,7 @@
 Sistema visual e interativo para aprender ocarina de 12 furos (afinação **Alto C**) e música básica, em português do Brasil.
 HTML/CSS/JS puro, sem build. Funciona no GitHub Pages.
 
-> Status: **etapa 6** (ocarina, tabela, Fundamentos, Técnica, Prática com microfone e Repertório Zelda). Resta a tela de Progresso.
+> Status: **etapa 7** (todos os módulos prontos: ocarina, tabela, Fundamentos, Técnica, Prática, Repertório e Progresso). Falta só a revisão final do README.
 
 ## Rodar localmente
 
@@ -33,8 +33,8 @@ js/fundamentos/ widgets.js · exercicios.js · ritmo.js · pauta.js
 js/tecnica/  widgets.js · ilustracoes.js (SVG originais)
 js/progresso.js (progresso das lições)
 js/ocarina/ dedilhados.js · ocarina-svg.js · teclado.js · medidor.js
-js/modulos/ inicio.js · fundamentos.js · tecnica.js · pratica.js · repertorio.js · ocarina.js · tabela.js
-data/       dedilhados.json · ocarina-layout.json · licoes.json · tecnica.json · treinos.json · musicas.json   ← editáveis
+js/modulos/ inicio.js · fundamentos.js · tecnica.js · pratica.js · repertorio.js · progresso.js · ocarina.js · tabela.js
+data/       dedilhados.json · ocarina-layout.json · licoes.json · tecnica.json · treinos.json · musicas.json · trilha.json   ← editáveis
 referencias/ fotos da ocarina
 ```
 

@@ -3,6 +3,7 @@ import { criarOcarinaSVG } from '../ocarina/ocarina-svg.js';
 import { obterLicoes } from './fundamentos.js';
 import { progressoLicoes, progressoTecnica, progressoMusicas } from '../progresso.js';
 import { obterMusicas } from './repertorio.js';
+import { resumoProgresso } from './progresso.js';
 import { obterTecnica } from './tecnica.js';
 
 const TRILHA = [
@@ -11,7 +12,7 @@ const TRILHA = [
   { chave: 'tecnica', titulo: 'Técnica de ocarina', texto: 'Postura, sopro suave, articulação e respiração.', rota: '#/tecnica', status: 'disponivel' },
   { chave: 'pratica', titulo: 'Prática com feedback', texto: 'Quiz, modo escuta com microfone e modo guiado.', rota: '#/pratica', status: 'disponivel' },
   { chave: 'repertorio', titulo: 'Repertório Zelda', texto: 'As 12 canções de Ocarina of Time, da mais fácil para a mais difícil.', rota: '#/repertorio', status: 'disponivel' },
-  { titulo: 'Progresso', texto: 'O que você já domina e o que ainda erra.', status: 'breve' },
+  { chave: 'progresso', titulo: 'Progresso', texto: 'O que você já domina e o que ainda erra.', rota: '#/progresso', status: 'disponivel' },
 ];
 
 export async function montar(raiz) {
@@ -43,13 +44,21 @@ export async function montar(raiz) {
     resumoRep = ` · ${n} de ${d.musicas.length} canções dominadas`;
   } catch { /* segue sem o resumo */ }
 
+  let resumoPg = '';
+  let proximoPasso = null;
+  try {
+    const r = await resumoProgresso();
+    resumoPg = ` · ${r.feitos} de ${r.total} passos da trilha`;
+    proximoPasso = r.proximo;
+  } catch { /* segue sem o resumo */ }
+
   raiz.innerHTML = `
     <section class="hero">
       <div class="hero-texto">
         <h1>Aprenda ocarina do zero</h1>
         <p>Sem precisar saber música. Cada nota mostra onde colocar os dedos e como ela soa.</p>
         <div class="hero-acoes">
-          <a class="btn btn-primario" href="#/fundamentos">Começar pelos fundamentos</a>
+          ${proximoPasso ? `<a class="btn btn-primario" href="${proximoPasso.rota}">Continuar: ${proximoPasso.titulo}</a>` : '<a class="btn btn-primario" href="#/fundamentos">Começar pelos fundamentos</a>'}
           <a class="btn" href="#/ocarina">Explorar a ocarina</a>
         </div>
       </div>
@@ -62,7 +71,7 @@ export async function montar(raiz) {
           <li data-status="${(t.chave === 'fundamentos' && fundCompleto) || (t.chave === 'tecnica' && tecCompleto) ? 'pronto' : t.status}">
             <div>
               <strong>${t.rota ? `<a href="${t.rota}">${t.titulo}</a>` : t.titulo}</strong>
-              <small>${t.texto}${t.status === 'breve' ? ' · em breve' : ''}${t.chave === 'fundamentos' ? resumoFund : t.chave === 'tecnica' ? resumoTec : t.chave === 'repertorio' ? resumoRep : ''}</small>
+              <small>${t.texto}${t.status === 'breve' ? ' · em breve' : ''}${t.chave === 'fundamentos' ? resumoFund : t.chave === 'tecnica' ? resumoTec : t.chave === 'repertorio' ? resumoRep : t.chave === 'progresso' ? resumoPg : ''}</small>
             </div>
           </li>`).join('')}
       </ol>
