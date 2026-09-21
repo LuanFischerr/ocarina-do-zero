@@ -1,0 +1,190 @@
+{
+  "_comentario": "Conteúdo da Técnica (editável). Tipos de passo: texto, destaque, figura (ilustração SVG em js/tecnica/ilustracoes.js), widget (js/tecnica/widgets.js), checklist. As dicas foram conferidas nas fontes listadas em cada tópico; nada aqui substitui as instruções do fabricante da sua ocarina.",
+  "fontes": {
+    "pure-como": { "titulo": "Pure Ocarinas — How to play the ocarina", "url": "https://pureocarinas.com/how-to-play-ocarina" },
+    "pure-sopro": { "titulo": "Pure Ocarinas — Blowing an ocarina correctly", "url": "https://pureocarinas.com/ocarina-tutorial/blowing-an-ocarina-correctly" },
+    "pure-artic": { "titulo": "Pure Ocarinas — Articulating notes on the ocarina", "url": "https://pureocarinas.com/ocarina-tutorial/articulating-notes-on-ocarina" },
+    "pure-temp": { "titulo": "Pure Ocarinas — How air temperature affects an ocarina's pitch", "url": "https://pureocarinas.com/about-the-ocarina/ocarina-temperature-sensitivity" },
+    "pure-umid": { "titulo": "Pure Ocarinas — Why do I get a lot of moisture in my ocarina?", "url": "https://pureocarinas.com/ocarina-saliva-moisture" },
+    "songbird": { "titulo": "Songbird Ocarina — Using proper breath pressure", "url": "https://songbirdocarina.zendesk.com/hc/en-us/articles/203542580-Using-Proper-Breath-Pressure" },
+    "stl-cuidados": { "titulo": "STL Ocarina — Ocarina care instructions", "url": "https://www.stlocarina.com/blogs/news/ocarina-care-instructions" },
+    "ps": { "titulo": "Playsoloist — 12-Hole Alto C Ocarina Finger Chart", "url": "https://playsoloist.com/ocarina/finger-chart" }
+  },
+  "topicos": [
+    {
+      "id": "postura",
+      "titulo": "Postura e como segurar",
+      "resumo": "Coluna, ombros, mãos e polegares: o que cada dedo faz.",
+      "minutos": 5,
+      "fontes": ["pure-como", "pure-sopro", "ps"],
+      "passos": [
+        { "tipo": "texto", "html": "<p>Uma boa postura deixa o sopro livre e evita dor. Fique em pé ou sentado com a <b>coluna reta</b>, os <b>ombros soltos</b> e a <b>cabeça erguida</b>. Mantenha os <b>braços perto do tronco</b> e os cotovelos relaxados.</p><p>Quem se move é a ocarina: ela <b>sobe até a boca</b>. Baixar a cabeça curva o pescoço, aperta a respiração e ainda deixa saliva escorrer para dentro do canal do bocal.</p>" },
+        { "tipo": "figura", "figura": "postura", "legenda": "Esquema de postura: a linha verde tracejada é a coluna reta." },
+        { "tipo": "texto", "html": "<p>Cada mão cuida de um lado da ocarina: a <b>mão esquerda</b> cobre 4 furos com os dedos (indicador, médio, anelar e mínimo) e um furo atrás com o polegar; a <b>mão direita</b> faz o mesmo do outro lado.</p><p>Os <b>polegares ficam retos</b>, apoiando por trás. Dobrar o polegar para trás (a &quot;mão de caroneiro&quot;) tira a mão do alinhamento e dificulta apoiar o instrumento e alcançar as notas agudas. Mantenha os dedos relaxados e levemente curvos, e os pulsos retos. O mínimo esquerdo fica coberto quase o tempo todo e ajuda a sustentar a ocarina.</p>" },
+        { "tipo": "widget", "widget": "mapa-maos" },
+        { "tipo": "destaque", "html": "Segure com a firmeza <b>suficiente</b> para a ocarina ficar estável, sem tensão nas mãos. Se os dedos ficarem duros ou doloridos, você está apertando demais." },
+        { "tipo": "checklist", "id": "postura-antes", "titulo": "Antes de soprar, confira:", "itens": ["Coluna reta e ombros soltos", "Cabeça erguida, olhando à frente", "Cotovelos perto do corpo, sem tensão", "Polegares retos, dedos curvos e relaxados", "Ocarina firme, mas sem apertar"] }
+      ]
+    },
+    {
+      "id": "cobertura",
+      "titulo": "Cobrir os furos sem vazar",
+      "resumo": "Almofada do dedo, sub-furos e como achar um vazamento.",
+      "minutos": 5,
+      "fontes": ["pure-como", "ps"],
+      "passos": [
+        { "tipo": "texto", "html": "<p>Os furos se cobrem com a <b>almofada</b> do dedo: a parte macia do lado oposto à unha. O <b>centro da almofada</b> deve ficar sobre o furo. Cobrir só um pedaço do furo faz a ocarina <b>desafinar</b>.</p><p>A pressão é a de <b>vedar</b>, não de apertar: firme, mas relaxada.</p>" },
+        { "tipo": "figura", "figura": "almofada", "legenda": "Vista em corte: o dedo sobre o furo (a parede escura é a ocarina)." },
+        { "tipo": "texto", "html": "<p><b>Sub-furos (A e B).</b> São os furinhos ao lado dos furos dos dedos médios. Cobre-se deslizando a almofada para tampar o furo grande e o pequeno ao mesmo tempo. Eles aparecem principalmente nas notas mais graves (Lá 4, Lá♯4, Si 4) e em alguns dedilhados cruzados; na Tabela e na tela Ocarina são marcados com <b>A</b> e <b>B</b>.</p>" },
+        { "tipo": "texto", "html": "<p><b>Como testar um vazamento:</b> cubra os 10 furos principais, com os sub-furos abertos, e sopre bem suave e constante. Deve soar um <b>Dó 5</b> firme. Se chiar, ficar fraco ou &quot;quebrar&quot; em outra altura, algum furo está vazando. Levante um dedo por vez e recoloque, girando o centro da almofada sobre o furo até o som ficar limpo.</p>" },
+        { "tipo": "widget", "widget": "ref-dedilhado", "notas": ["C5", "A4"], "titulo": "Compare com a referência" },
+        { "tipo": "destaque", "html": "Mais adiante, o <b>modo escuta</b> (Prática) vai ouvir o seu sopro pelo microfone e mostrar se a nota está firme e afinada, o que ajuda muito a achar vazamentos." }
+      ]
+    },
+    {
+      "id": "sopro",
+      "titulo": "Sopro suave e constante",
+      "resumo": "Boca no bocal, força do ar e por que soprar forte desafina.",
+      "minutos": 8,
+      "fontes": ["pure-como", "pure-sopro", "songbird", "pure-temp"],
+      "passos": [
+        { "tipo": "texto", "html": "<p>A ocarina pede um sopro <b>suave e constante</b>, mais parecido com soprar para aquecer as mãos do que com apitar. Aqui a altura da nota depende dos furos <b>e também</b> da força do sopro: soprar forte demais deixa a nota mais aguda do que deveria e ela desafina; soprar fraco demais deixa a nota fraca e mais grave.</p>" },
+        { "tipo": "figura", "figura": "bocal", "legenda": "Esquema simplificado do bocal; o desenho do seu modelo pode variar." },
+        { "tipo": "texto", "html": "<p><b>A boca.</b> Faça uma abertura pequena e oval com os lábios, como quem vai dizer &quot;bu&quot;, e <b>encoste</b> o bocal só o bastante para vedar. O bocal não pode tocar os dentes: se você consegue mordê-lo, colocou demais. Mantenha as bochechas firmes, sem estufar, e evite soprar em &quot;rajadas&quot;, que fazem a nota subir e depois cair. <b>Nunca cubra a janela</b> do apito com lábio ou dedo.</p>" },
+        { "tipo": "texto", "html": "<p>Experimente a simulação abaixo. Ela é <b>ilustrativa</b>: mostra a ideia (fraco = grave e aerado, suave = afinado, forte = agudo e áspero), não medidas reais da sua ocarina.</p>" },
+        { "tipo": "widget", "widget": "sopro" },
+        { "tipo": "texto", "html": "<p><b>Regras práticas:</b></p><ol><li>Comece com todos os furos cobertos e sopre <b>bem suave</b>.</li><li>À medida que você levanta dedos e a nota sobe, dê <b>um pouco mais</b> de ar, gradualmente.</li><li>As notas graves são mais sensíveis à variação de sopro do que as agudas.</li></ol>" },
+        { "tipo": "destaque", "html": "<b>Temperatura também afina.</b> Ocarina fria soa mais grave e ocarina quente, mais aguda: cerca de <b>1 cent por °C</b> (1 cent = 1/100 de semitom). Por isso a ocarina deve estar na temperatura do ambiente antes de você afinar de ouvido." },
+        { "tipo": "widget", "widget": "nota-longa" }
+      ]
+    },
+    {
+      "id": "articulacao",
+      "titulo": "Articulação com a língua",
+      "resumo": "Tu, du e lu: como começar cada nota com clareza.",
+      "minutos": 6,
+      "fontes": ["pure-artic", "pure-sopro"],
+      "passos": [
+        { "tipo": "texto", "html": "<p><b>Articular</b> é separar as notas usando a língua. A sílaba padrão é <b>&quot;tu&quot;</b>: a língua encosta atrás dos dentes de cima e solta, como se você dissesse &quot;tu&quot; e esticasse o &quot;u&quot;. A língua interrompe e libera o ar; quem controla a força do sopro é o abdômen.</p><p>Há um espectro de ataques: <b>tu</b> é o mais definido, <b>du</b> é mais macio e <b>lu</b> é bem suave. Sem língua, com o ar contínuo e só os dedos mudando a nota, as notas ficam <b>ligadas</b> (legato).</p>" },
+        { "tipo": "widget", "widget": "articulacao" },
+        { "tipo": "texto", "html": "<p><b>Cuidados:</b> não deixe a língua perto demais dos dentes, porque o som fica ruidoso; comece cada nota <b>na batida</b>, não depois; e treine <b>devagar</b>, coordenando dedos e língua antes de acelerar.</p><p><b>Treino sugerido</b> (60 a 80 BPM): (1) Sol 5 quatro vezes com &quot;tu&quot;; (2) escala de Dó a Dó com &quot;tu&quot;; (3) a mesma escala ligada; (4) alternar as duas maneiras.</p>" }
+      ]
+    },
+    {
+      "id": "respiracao",
+      "titulo": "Respiração e fôlego",
+      "resumo": "Respirar pelo abdômen e sustentar o ar com calma.",
+      "minutos": 5,
+      "fontes": ["pure-como", "pure-sopro"],
+      "passos": [
+        { "tipo": "texto", "html": "<p>Respire pelo <b>abdômen</b>, não pelo peito: ponha a mão na barriga. Ela deve avançar quando você inspira, e os <b>ombros não devem subir</b>. Costas curvadas comprimem o fôlego e limitam o ar disponível.</p>" },
+        { "tipo": "widget", "widget": "respiracao" },
+        { "tipo": "texto", "html": "<p>Nas músicas, respire nas <b>pausas</b> e no fim das frases (lembra da lição de ritmo, em que a pausa é silêncio com duração?). Inspire sem pressa e solte o ar de forma lenta e controlada.</p>" },
+        { "tipo": "destaque", "html": "Se sentir tontura, <b>pare</b>, respire normalmente e descanse. Faça pausas curtas durante a prática." }
+      ]
+    },
+    {
+      "id": "aquecimento",
+      "titulo": "Aquecimento e cuidados",
+      "resumo": "Uma rotina curta antes de tocar e como cuidar da cerâmica.",
+      "minutos": 6,
+      "fontes": ["pure-temp", "pure-umid", "stl-cuidados"],
+      "passos": [
+        { "tipo": "texto", "html": "<p>A cerâmica conduz mal o calor e leva alguns minutos para chegar à temperatura do ambiente. Se a ocarina estiver fria, segure-a nas mãos antes de tocar: soprar em uma ocarina muito fria gera bastante condensação e o som fica mais grave.</p><p>Uma rotina curta de aquecimento ajuda o corpo, o fôlego e a afinação. Marque os passos conforme faz. O progresso do dia fica salvo neste navegador.</p>" },
+        { "tipo": "widget", "widget": "rotina" },
+        { "tipo": "texto", "html": "<h3>Cuidados com a ocarina de cerâmica</h3><ul><li>Depois de tocar, limpe o exterior com um pano macio e deixe secar ao ar antes de guardar.</li><li>Evite produtos perfumados, álcool e desinfetantes fortes: a cerâmica é porosa e absorve.</li><li>Não mergulhe, não lave em máquina e não use água fervente.</li><li>Nunca raspe ou enfie objetos no canal do bocal.</li><li>Guarde longe de sol direto, secador, aquecedor e variações bruscas de temperatura.</li><li>Cuidado com quedas: a cerâmica é frágil.</li></ul><p>Siga sempre as instruções do fabricante da sua ocarina.</p>" }
+      ]
+    },
+    {
+      "id": "erros",
+      "titulo": "Erros comuns e como corrigir",
+      "resumo": "Escolha o sintoma e veja a causa provável e o que fazer.",
+      "minutos": 5,
+      "fontes": ["pure-como", "pure-sopro", "pure-umid", "pure-artic"],
+      "passos": [
+        { "tipo": "texto", "html": "<p>Quase todo problema de iniciante cai em poucos grupos: <b>vazamento nos furos</b>, <b>sopro forte ou fraco demais</b> e <b>postura ou boca</b>. Escolha abaixo o que você está ouvindo ou sentindo.</p>" },
+        { "tipo": "widget", "widget": "diagnostico" }
+      ]
+    }
+  ],
+  "rotina": [
+    { "id": "aquecer", "titulo": "Aquecer a ocarina", "detalhe": "Segure-a entre as mãos por cerca de 1 minuto; respire fundo.", "minutos": 1 },
+    { "id": "respirar", "titulo": "Respiração guiada", "detalhe": "4 ciclos: inspire pelo abdômen, solte devagar. Use o guia da lição de Respiração.", "minutos": 1 },
+    { "id": "longas", "titulo": "Notas longas", "detalhe": "Dó 5 três vezes e Sol 5 duas vezes, ~8 segundos cada, suaves e constantes.", "minutos": 2, "ref": ["C5", "G5"] },
+    { "id": "escala", "titulo": "Escala lenta, ligada", "detalhe": "Dó → Dó, uma nota por batida a 60 BPM, sem língua e com sopro crescendo pouco a pouco.", "minutos": 1, "ref": ["C5", "D5", "E5", "F5", "G5", "A5", "B5", "C6"] },
+    { "id": "tu", "titulo": "Articulação com &quot;tu&quot;", "detalhe": "Sol 5 quatro vezes com &quot;tu&quot;, duas rodadas, devagar.", "minutos": 1, "ref": ["G5", "G5", "G5", "G5"] },
+    { "id": "musica", "titulo": "Tocar algo simples", "detalhe": "Uma melodia curta do repertório (quando o módulo Repertório estiver pronto) ou a escala que você mais gosta.", "minutos": 2 }
+  ],
+  "sintomas": [
+    {
+      "id": "chiado",
+      "sintoma": "O som chia, tem muito ar ou &quot;quebra&quot;",
+      "causas": ["Um furo está vazando: o centro da almofada não está sobre o furo.", "Um sub-furo ou um polegar não está bem vedado."],
+      "correcoes": ["Cubra os 10 furos e sopre suave: deve soar Dó 5 firme.", "Levante e recoloque um dedo de cada vez, centralizando a almofada.", "Nos dedilhados com sub-furo, deslize o dedo para cobrir os dois furos."],
+      "topico": "cobertura"
+    },
+    {
+      "id": "agudo",
+      "sintoma": "A nota sai aguda demais, estridente ou desafinada",
+      "causas": ["Sopro forte demais.", "Ocarina ou ambiente quentes."],
+      "correcoes": ["Solte o ar mais suave e constante.", "Dê só um pouco mais de ar a cada nota mais aguda.", "Confira se o dedilhado está certo na Tabela."],
+      "topico": "sopro"
+    },
+    {
+      "id": "grave",
+      "sintoma": "A nota sai grave, fraca ou &quot;cai&quot; no fim",
+      "causas": ["Sopro fraco ou irregular, ou fôlego acabando.", "Soprar em rajadas (a nota sobe e desce).", "Ocarina fria.", "Um furo vazando."],
+      "correcoes": ["Respire fundo pelo abdômen antes de começar.", "Mantenha o ar suave e contínuo, sem estufar as bochechas.", "Aqueça a ocarina nas mãos.", "Teste vazamentos cobrindo os 10 furos."],
+      "topico": "respiracao"
+    },
+    {
+      "id": "sem-som",
+      "sintoma": "Só sai ar, quase sem som",
+      "causas": ["A janela do apito está coberta (lábio, dedo ou mão).", "Bocal mal posicionado nos lábios.", "Umidade ou saliva no canal."],
+      "correcoes": ["Afaste tudo da janela: ela nunca deve ser coberta.", "Encoste o bocal nos lábios sem enfiar; bocal longe dos dentes.", "Pare, incline e seque com pano macio; não raspe o canal."],
+      "topico": "sopro"
+    },
+    {
+      "id": "saliva",
+      "sintoma": "Tem saliva ou umidade no bocal",
+      "causas": ["Cabeça baixa ao tocar.", "Bocal muito dentro da boca.", "Ocarina fria (condensação)."],
+      "correcoes": ["Mantenha a cabeça erguida.", "Encoste só o bocal nos lábios, longe dos dentes.", "Aqueça a ocarina antes de tocar.", "Ao terminar, limpe por fora e deixe secar ao ar."],
+      "topico": "postura"
+    },
+    {
+      "id": "ruido",
+      "sintoma": "Cada nota começa com um ruído ou chiado",
+      "causas": ["Língua perto demais dos dentes.", "Ataque exagerado ao dizer &quot;tu&quot;."],
+      "correcoes": ["Afaste um pouco a língua dos dentes.", "Experimente &quot;du&quot; ou &quot;lu&quot;, mais macios.", "Treine devagar com uma nota longa e começo limpo."],
+      "topico": "articulacao"
+    },
+    {
+      "id": "intermediarias",
+      "sintoma": "Ao trocar de nota aparecem notas &quot;sujas&quot; no meio",
+      "causas": ["Os dedos levantam ou abaixam em momentos diferentes.", "Movimentos grandes demais."],
+      "correcoes": ["Levante e abaixe os dedos ao mesmo tempo, com movimentos curtos.", "Treine a troca bem devagar (modo guiado com andamento lento)."],
+      "topico": "cobertura"
+    },
+    {
+      "id": "cansaco",
+      "sintoma": "Mãos e dedos cansados ou doendo",
+      "causas": ["Apertar a ocarina ou os furos demais.", "Polegares dobrados para trás.", "Ombros ou punhos tensos."],
+      "correcoes": ["Segure com firmeza suficiente, sem tensão.", "Deixe os polegares retos e os pulsos alinhados.", "Faça pausas curtas e relaxe as mãos."],
+      "topico": "postura"
+    },
+    {
+      "id": "folego",
+      "sintoma": "Fico sem fôlego ou tonto",
+      "causas": ["Respiração rasa, só pelo peito.", "Sopro forte demais gastando o ar.", "Poucas pausas."],
+      "correcoes": ["Respire pelo abdômen, sem levantar os ombros.", "Sopre mais suave: menos ar rende mais tempo.", "Respire nas pausas; se tontear, pare e descanse."],
+      "topico": "respiracao"
+    },
+    {
+      "id": "tabela",
+      "sintoma": "A nota não bate com a Tabela",
+      "causas": ["Sua ocarina pode ter outro dedilhado, principalmente nos sustenidos e bemóis (cruzados).", "Os sub-furos A e B podem estar invertidos.", "Sopro forte ou fraco demais."],
+      "correcoes": ["Confirme antes com o sopro suave.", "Teste as alternativas da Tabela (Ré♯5, Dó♯6, Ré♯6).", "Edite data/dedilhados.json e marque a nota como validada."],
+      "topico": "sopro"
+    }
+  ]
+}
