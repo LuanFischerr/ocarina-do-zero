@@ -1,0 +1,115 @@
+{
+  "_comentario": "Exercícios do modo guiado (editável). 'notas' = lista de { n: id da nota (ex. \"C5\") ou null para pausa, t: duração em tempos }. 'bpm' é o andamento normal; no app dá para tocar mais lento. O Repertório usa o mesmo formato.",
+  "treinos": [
+    {
+      "id": "escala-do",
+      "titulo": "Escala de Dó maior (subindo)",
+      "nivel": 1,
+      "bpm": 60,
+      "foco": "Trocar de nota mantendo o sopro suave e constante.",
+      "notas": [
+        { "n": "C5", "t": 1 }, { "n": "D5", "t": 1 }, { "n": "E5", "t": 1 }, { "n": "F5", "t": 1 },
+        { "n": "G5", "t": 1 }, { "n": "A5", "t": 1 }, { "n": "B5", "t": 1 }, { "n": "C6", "t": 2 }
+      ]
+    },
+    {
+      "id": "notas-longas",
+      "titulo": "Notas longas",
+      "nivel": 1,
+      "bpm": 60,
+      "foco": "Sustentar cada nota afinada, do começo ao fim, sem tremer.",
+      "notas": [
+        { "n": "C5", "t": 4 }, { "n": null, "t": 1 }, { "n": "G5", "t": 4 }, { "n": null, "t": 1 }, { "n": "C5", "t": 4 }
+      ]
+    },
+    {
+      "id": "escala-do-desc",
+      "titulo": "Escala de Dó maior (descendo)",
+      "nivel": 1,
+      "bpm": 60,
+      "foco": "Descer com o sopro diminuindo aos poucos.",
+      "notas": [
+        { "n": "C6", "t": 1 }, { "n": "B5", "t": 1 }, { "n": "A5", "t": 1 }, { "n": "G5", "t": 1 },
+        { "n": "F5", "t": 1 }, { "n": "E5", "t": 1 }, { "n": "D5", "t": 1 }, { "n": "C5", "t": 2 }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "Frases com pausas",
+      "nivel": 1,
+      "bpm": 70,
+      "foco": "Respirar nas pausas e voltar no tempo.",
+      "notas": [
+        { "n": "C5", "t": 1 }, { "n": "D5", "t": 1 }, { "n": "E5", "t": 1 }, { "n": null, "t": 1 },
+        { "n": "G5", "t": 1 }, { "n": "F5", "t": 1 }, { "n": "E5", "t": 1 }, { "n": null, "t": 1 },
+        { "n": "D5", "t": 1 }, { "n": "C5", "t": 2 }
+      ]
+    },
+    {
+      "id": "vai-e-volta",
+      "titulo": "Saltos: Dó e Sol",
+      "nivel": 2,
+      "bpm": 60,
+      "foco": "Trocar vários dedos de uma vez, no mesmo instante.",
+      "notas": [
+        { "n": "C5", "t": 1 }, { "n": "G5", "t": 1 }, { "n": "C5", "t": 1 }, { "n": "G5", "t": 1 },
+        { "n": "E5", "t": 1 }, { "n": "G5", "t": 1 }, { "n": "C5", "t": 2 }
+      ]
+    },
+    {
+      "id": "arpejo",
+      "titulo": "Arpejo de Dó",
+      "nivel": 2,
+      "bpm": 60,
+      "foco": "Notas do acorde de Dó: Dó, Mi, Sol, Dó.",
+      "notas": [
+        { "n": "C5", "t": 1 }, { "n": "E5", "t": 1 }, { "n": "G5", "t": 1 }, { "n": "C6", "t": 1 },
+        { "n": "G5", "t": 1 }, { "n": "E5", "t": 1 }, { "n": "C5", "t": 2 }
+      ]
+    },
+    {
+      "id": "tercas",
+      "titulo": "Sobe de duas em duas",
+      "nivel": 2,
+      "bpm": 60,
+      "foco": "Pular uma nota da escala com precisão.",
+      "notas": [
+        { "n": "C5", "t": 1 }, { "n": "E5", "t": 1 }, { "n": "D5", "t": 1 }, { "n": "F5", "t": 1 },
+        { "n": "E5", "t": 1 }, { "n": "G5", "t": 1 }, { "n": "F5", "t": 1 }, { "n": "A5", "t": 1 }, { "n": "G5", "t": 2 }
+      ]
+    },
+    {
+      "id": "agudos",
+      "titulo": "Região aguda",
+      "nivel": 3,
+      "bpm": 50,
+      "foco": "Notas agudas pedem sopro suave e polegares retos.",
+      "notas": [
+        { "n": "G5", "t": 1 }, { "n": "A5", "t": 1 }, { "n": "B5", "t": 1 }, { "n": "C6", "t": 1 },
+        { "n": "D6", "t": 1 }, { "n": "E6", "t": 1 }, { "n": "F6", "t": 2 }, { "n": "E6", "t": 1 }, { "n": "D6", "t": 1 }, { "n": "C6", "t": 2 }
+      ]
+    },
+    {
+      "id": "graves",
+      "titulo": "Região grave (sub-furos)",
+      "nivel": 3,
+      "bpm": 50,
+      "foco": "Cobrir os sub-furos A e B com a almofada do dedo, sem vazar.",
+      "notas": [
+        { "n": "C5", "t": 1 }, { "n": "B4", "t": 1 }, { "n": "A#4", "t": 1 }, { "n": "A4", "t": 2 },
+        { "n": "A#4", "t": 1 }, { "n": "B4", "t": 1 }, { "n": "C5", "t": 2 }
+      ]
+    },
+    {
+      "id": "cromatica",
+      "titulo": "Sequência cromática curta",
+      "nivel": 3,
+      "bpm": 50,
+      "foco": "Sustenidos: dedilhados cruzados (confira as dúvidas na Tabela).",
+      "notas": [
+        { "n": "C5", "t": 1 }, { "n": "C#5", "t": 1 }, { "n": "D5", "t": 1 }, { "n": "D#5", "t": 1 },
+        { "n": "E5", "t": 1 }, { "n": "F5", "t": 1 }, { "n": "F#5", "t": 1 }, { "n": "G5", "t": 2 }
+      ]
+    }
+  ]
+}
