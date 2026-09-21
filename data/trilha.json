@@ -1,0 +1,32 @@
+{
+  "_comentario": "Trilha sugerida de estudo (editável). Cada passo aponta para uma lição (licao), um tema de técnica (tecnica), uma canção (musica) ou um modo de prática (pratica: quiz, escuta ou guiado). A ordem vai do mais básico ao mais completo.",
+  "passos": [
+    { "tipo": "licao", "id": "som-altura" },
+    { "tipo": "licao", "id": "sete-notas" },
+    { "tipo": "licao", "id": "oitavas-acidentes" },
+    { "tipo": "licao", "id": "ritmo" },
+    { "tipo": "licao", "id": "pauta" },
+    { "tipo": "tecnica", "id": "postura" },
+    { "tipo": "tecnica", "id": "cobertura" },
+    { "tipo": "tecnica", "id": "sopro" },
+    { "tipo": "pratica", "id": "quiz", "titulo": "Fazer um quiz de dedilhados", "detalhe": "Uma rodada de 10 perguntas até o fim.", "rota": "#/pratica/quiz" },
+    { "tipo": "musica", "id": "cancao-do-tempo" },
+    { "tipo": "musica", "id": "cancao-da-saria" },
+    { "tipo": "tecnica", "id": "articulacao" },
+    { "tipo": "tecnica", "id": "respiracao" },
+    { "tipo": "pratica", "id": "escuta", "titulo": "Experimentar o modo escuta", "detalhe": "Toque uma nota e veja o medidor de afinação.", "rota": "#/pratica/escuta" },
+    { "tipo": "pratica", "id": "guiado", "titulo": "Fazer um exercício do modo guiado", "detalhe": "Ou toque uma canção com avaliação.", "rota": "#/pratica/guiado" },
+    { "tipo": "musica", "id": "cancao-de-zelda" },
+    { "tipo": "musica", "id": "cancao-da-epona" },
+    { "tipo": "musica", "id": "cancao-do-sol" },
+    { "tipo": "tecnica", "id": "aquecimento" },
+    { "tipo": "tecnica", "id": "erros" },
+    { "tipo": "musica", "id": "serenata-da-agua" },
+    { "tipo": "musica", "id": "requiem-do-espirito" },
+    { "tipo": "musica", "id": "cancao-da-tempestade" },
+    { "tipo": "musica", "id": "minueto-da-floresta" },
+    { "tipo": "musica", "id": "noturno-da-sombra" },
+    { "tipo": "musica", "id": "preludio-da-luz" },
+    { "tipo": "musica", "id": "bolero-do-fogo" }
+  ]
+}
