@@ -6,6 +6,7 @@ import { criarMicrofone } from '../audio/microfone.js';
 import { criarPainelMic } from './painel-mic.js';
 import { tocarNota, garantirAudio } from '../audio/sintese.js';
 import { midiParaId } from '../audio/pitch.js';
+import { registrarUso } from '../progresso.js';
 
 const html = (s) => { const t = document.createElement('template'); t.innerHTML = s.trim(); return t.content.firstElementChild; };
 const mediana = (arr) => { const s = [...arr].sort((a, b) => a - b); return s[s.length >> 1]; };
@@ -87,6 +88,7 @@ export function montarEscuta(raiz, { O }) {
   let ultimaValida = 0;
   let mudoAte = 0;               // silencia a análise enquanto o app toca a referência
   let idExibido = null;
+  let contouUso = false;
 
   const alvo = () => (alvoSel.value ? O.porId.get(alvoSel.value) : null);
 
@@ -120,6 +122,7 @@ export function montarEscuta(raiz, { O }) {
 
     const alvoNota = alvo();
     if (estavel) {
+      if (!contouUso) { contouUso = true; registrarUso('escuta'); }
       const midiF = mediana(validas.map((v) => v.midiFloat));
       const freq = mediana(validas.map((v) => v.freq));
       const midi = Math.round(midiF);

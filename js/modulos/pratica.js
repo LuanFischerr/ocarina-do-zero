@@ -3,7 +3,7 @@ import { obterOcarina, rotuloCompleto } from '../ocarina/dedilhados.js';
 import { montarQuiz, MODOS_QUIZ } from '../pratica/quiz.js';
 import { montarEscuta } from '../pratica/escuta.js';
 import { montarGuiado } from '../pratica/guiado.js';
-import { estatisticasNotas } from '../progresso.js';
+import { estatisticasNotas, classificarNota, registrarUso, registrarTreino } from '../progresso.js';
 import { ler, salvar } from '../estado.js';
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -45,14 +45,17 @@ export async function montar(raiz, params = []) {
     </section>`;
   const corpo = raiz.querySelector('#pratica-corpo');
 
-  if (sub === 'quiz') return montarTelaQuiz(corpo, O);
+  if (sub === 'quiz') return montarTelaQuiz(corpo, O, params[1]);
   if (sub === 'escuta') {
     corpo.innerHTML = '<div class="tela-cab"><h1>Modo escuta</h1><p>Toque a ocarina e veja qual nota você está fazendo e se ela está afinada.</p></div><div id="esc-slot"></div>';
     const s = montarEscuta(corpo.querySelector('#esc-slot'), { O });
     return () => s.destruir();
   }
   corpo.innerHTML = '<div class="tela-cab"><h1>Modo guiado</h1><p>As notas correm até a linha “agora”; o dedilhado aparece na ocarina e o microfone confere se você tocou a nota certa.</p></div><div id="g-slot"></div>';
-  const g = montarGuiado(corpo.querySelector('#g-slot'), { O, treinos, treinoId: params[1] ?? ler('guiado.treino', null) });
+  const g = montarGuiado(corpo.querySelector('#g-slot'), {
+    O, treinos, treinoId: params[1] ?? ler('guiado.treino', null),
+    aoResultado: (r) => { registrarTreino(r.treino.id, r); registrarUso('guiado'); },
+  });
   corpo.querySelector('[data-treino]')?.addEventListener('change', (e) => salvar('guiado.treino', e.target.value));
   return () => g.destruir();
 }
@@ -85,9 +88,10 @@ function montarHub(raiz, O) {
 }
 
 // ------------------------------------------------------------------ quiz
-function montarTelaQuiz(corpo, O) {
+function montarTelaQuiz(corpo, O, poolInicial = null) {
   let modo = ler('quiz.modo', 'dedilhado-nota');
-  let pool = ler('quiz.pool', 'naturais');
+  let pool = poolInicial === 'revisao' ? 'revisao' : ler('quiz.pool', 'naturais');
+  if (!['naturais', 'todas', 'revisao'].includes(pool)) pool = 'naturais';
   if (!MODOS_QUIZ[modo]) modo = 'dedilhado-nota';
   corpo.innerHTML = `
     <div class="tela-cab"><h1>Qual nota é essa?</h1><p>10 perguntas por rodada. O app sorteia mais as notas que você mais erra.</p></div>
@@ -98,20 +102,23 @@ function montarTelaQuiz(corpo, O) {
       <div class="w-linha" role="group" aria-label="Quais notas">
         <button type="button" class="chip" data-pool="naturais" aria-pressed="${pool === 'naturais'}">Só naturais (13)</button>
         <button type="button" class="chip" data-pool="todas" aria-pressed="${pool === 'todas'}">Todas (21, com ♯/♭)</button>
+        <button type="button" class="chip" data-pool="revisao" aria-pressed="${pool === 'revisao'}">Só revisão</button>
       </div>
     </div>
+    <p class="w-dica q-aviso" role="status"></p>
     <div class="cartao q-corpo"></div>`;
   const slot = corpo.querySelector('.q-corpo');
   let quiz = null;
   function iniciar() {
     quiz?.destruir?.();
-    quiz = montarQuiz({ O, modo, pool });
+    quiz = montarQuiz({ O, modo, pool, aoAcabar: () => registrarUso('quiz') });
     slot.replaceChildren(quiz.el);
+    corpo.querySelector('.q-aviso').textContent = pool === 'revisao' ? (quiz.semRevisao ? 'Nada para revisar agora: sorteando entre todas as notas.' : 'Só as notas em que você errou ou que já estão na hora de rever.') : '';
     corpo.querySelectorAll('[data-modo]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.modo === modo)));
     corpo.querySelectorAll('[data-pool]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.pool === pool)));
   }
   corpo.querySelectorAll('[data-modo]').forEach((b) => b.addEventListener('click', () => { modo = b.dataset.modo; salvar('quiz.modo', modo); iniciar(); }));
-  corpo.querySelectorAll('[data-pool]').forEach((b) => b.addEventListener('click', () => { pool = b.dataset.pool; salvar('quiz.pool', pool); iniciar(); }));
+  corpo.querySelectorAll('[data-pool]').forEach((b) => b.addEventListener('click', () => { pool = b.dataset.pool; salvar('quiz.pool', pool === 'revisao' ? 'naturais' : pool); iniciar(); }));
   iniciar();
   return () => quiz?.destruir?.();
 }

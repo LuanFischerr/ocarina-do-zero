@@ -4,7 +4,7 @@ import { obterOcarina, nomeNota, rotuloCompleto, descreverDedilhado } from '../o
 import { criarOcarinaSVG } from '../ocarina/ocarina-svg.js';
 import { montarGuiado, montarEventos } from '../pratica/guiado.js';
 import { tocarNota, tocarSequencia, garantirAudio } from '../audio/sintese.js';
-import { progressoMusicas, registrarMusica } from '../progresso.js';
+import { progressoMusicas, registrarMusica, registrarUso } from '../progresso.js';
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const NIVEIS = {
@@ -220,7 +220,7 @@ function montarMusica(raiz, { O, dados, ordenadas, idx }) {
   const treino = { id: m.id, titulo: m.titulo, bpm: m.bpm, nivel: m.nivel, foco: `${m.titulo_original}: ${m.sequencia.length} notas.`, notas: m.notas };
   const g = montarGuiado(raiz.querySelector('#rep-guiado'), {
     O, treinos: [treino], treinoId: m.id, mostrarSeletor: false,
-    aoResultado: (r) => registrarMusica(m.id, r),
+    aoResultado: (r) => { registrarMusica(m.id, r); registrarUso('guiado'); },
   });
   destruirGuiado = g.destruir;
 

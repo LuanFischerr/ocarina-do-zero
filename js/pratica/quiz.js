@@ -2,7 +2,7 @@
 import { nomeNota, rotuloCompleto, descreverDedilhado } from '../ocarina/dedilhados.js';
 import { criarOcarinaSVG } from '../ocarina/ocarina-svg.js';
 import { criarQuiz } from '../fundamentos/exercicios.js';
-import { registrarNota, estatisticasNotas, pesoRevisao } from '../progresso.js';
+import { registrarNota, estatisticasNotas, pesoRevisao, classificarNota } from '../progresso.js';
 import { garantirAudio, tocarNota } from '../audio/sintese.js';
 
 const html = (s) => { const t = document.createElement('template'); t.innerHTML = s.trim(); return t.content.firstElementChild; };
@@ -54,13 +54,25 @@ const chave = (n) => n.cobertos.slice().sort().join('|');
 
 export function montarQuiz({ O, modo, pool: nome = 'naturais', aoAcabar = () => {} }) {
   const todas = O.notas;
-  const pool = nome === 'todas' ? todas : todas.filter((n) => nomeNota(n.id).natural);
+  const pool = nome === 'naturais' ? todas.filter((n) => nomeNota(n.id).natural) : todas;
+  // "revisão": só notas em que você errou ou que já estão vencidas na revisão espaçada
+  let alvos = pool;
+  let semRevisao = false;
+  if (nome === 'revisao') {
+    const est0 = estatisticasNotas();
+    alvos = todas.filter((n) => {
+      const c = classificarNota(n.id, est0);
+      return c.tipo === 'atencao' || (c.tentativas > 0 && c.vencida) || (c.erros > 0 && c.tipo !== 'dominada');
+    });
+    if (!alvos.length) { alvos = pool; semRevisao = true; }
+  }
+  const rodadas = nome === 'revisao' && !semRevisao ? Math.min(RODADAS, Math.max(5, alvos.length * 2)) : RODADAS;
   const erradas = [];
 
   const gerar = () => {
     erradas.length = 0;
     const est = estatisticasNotas();
-    return sortearPonderado(pool, Math.min(RODADAS, pool.length), est).map((alvo) => {
+    return sortearPonderado(alvos, Math.min(rodadas, Math.max(alvos.length, rodadas)), est).map((alvo) => {
       const nm = nomeNota(alvo.id);
       const d = descreverDedilhado(O.layout, alvo.cobertos);
       const texto = `mão esquerda: ${d.esquerda}; mão direita: ${d.direita}; sub-furos: ${d.subs ? 'cobrir ' + d.subs : 'abertos'}`;
@@ -117,7 +129,7 @@ export function montarQuiz({ O, modo, pool: nome = 'naturais', aoAcabar = () => 
     });
   };
 
-  return criarQuiz({
+  const quiz = criarQuiz({
     instrucao: MODOS_QUIZ[modo].instrucao,
     gerar,
     aprovacao: 0,
@@ -129,6 +141,8 @@ export function montarQuiz({ O, modo, pool: nome = 'naturais', aoAcabar = () => 
     },
     aoTerminar: (r) => aoAcabar(r),
   });
+  quiz.semRevisao = semRevisao;
+  return quiz;
 }
 
 function descreverTxt(O, n) {
