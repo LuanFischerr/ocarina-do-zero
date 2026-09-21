@@ -59,6 +59,9 @@ a { color: var(--azul); text-underline-offset: 3px; }
   border-radius: var(--raio-pequeno);
 }
 
+/* o atributo hidden deve vencer qualquer display definido em classe */
+[hidden] { display: none !important; }
+
 .sr-only {
   position: absolute;
   width: 1px;

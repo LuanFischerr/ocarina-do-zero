@@ -8,7 +8,7 @@ const TRILHA = [
   { chave: 'fundamentos', titulo: 'Fundamentos musicais', texto: 'Som, notas (Dó Ré Mi = C D E), oitavas, ritmo e pauta.', rota: '#/fundamentos', status: 'disponivel' },
   { titulo: 'Ocarina interativa', texto: 'Furos, notas e som. Já dá para explorar.', rota: '#/ocarina', status: 'disponivel' },
   { chave: 'tecnica', titulo: 'Técnica de ocarina', texto: 'Postura, sopro suave, articulação e respiração.', rota: '#/tecnica', status: 'disponivel' },
-  { titulo: 'Prática com feedback', texto: 'Quiz, modo escuta com microfone e modo guiado.', status: 'breve' },
+  { chave: 'pratica', titulo: 'Prática com feedback', texto: 'Quiz, modo escuta com microfone e modo guiado.', rota: '#/pratica', status: 'disponivel' },
   { titulo: 'Repertório Zelda', texto: 'Melodias curtas, da mais fácil para a mais difícil.', status: 'breve' },
   { titulo: 'Progresso', texto: 'O que você já domina e o que ainda erra.', status: 'breve' },
 ];
