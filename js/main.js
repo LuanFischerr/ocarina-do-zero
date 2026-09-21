@@ -1,12 +1,13 @@
-// Ponto de entrada: roteador por hash (#/inicio, #/ocarina/G5, #/tabela) — funciona em GitHub Pages sem configuração.
+// Ponto de entrada: roteador por hash (#/inicio, #/ocarina/G5, #/fundamentos/ritmo, #/tabela) — funciona em GitHub Pages sem configuração.
 import { ler, salvar } from './estado.js';
 
 const ROTAS = {
   inicio: { titulo: 'Início', carregar: () => import('./modulos/inicio.js') },
+  fundamentos: { titulo: 'Fundamentos', carregar: () => import('./modulos/fundamentos.js') },
   ocarina: { titulo: 'Ocarina', carregar: () => import('./modulos/ocarina.js') },
   tabela: { titulo: 'Tabela', carregar: () => import('./modulos/tabela.js') },
 };
-const EM_BREVE = ['Fundamentos', 'Técnica', 'Prática', 'Repertório', 'Progresso'];
+const EM_BREVE = ['Técnica', 'Prática', 'Repertório', 'Progresso'];
 
 const conteudo = document.getElementById('conteudo');
 const nav = document.getElementById('nav');

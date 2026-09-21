@@ -1,9 +1,11 @@
 import { obterOcarina } from '../ocarina/dedilhados.js';
 import { criarOcarinaSVG } from '../ocarina/ocarina-svg.js';
+import { obterLicoes } from './fundamentos.js';
+import { progressoLicoes } from '../progresso.js';
 
 const TRILHA = [
-  { titulo: 'Ocarina interativa', texto: 'Furos, notas e som. Comece por aqui.', rota: '#/ocarina', status: 'pronto' },
-  { titulo: 'Fundamentos musicais', texto: 'Som, notas (Dó Ré Mi = C D E), oitavas, ritmo.', status: 'breve' },
+  { chave: 'fundamentos', titulo: 'Fundamentos musicais', texto: 'Som, notas (Dó Ré Mi = C D E), oitavas, ritmo e pauta.', rota: '#/fundamentos', status: 'disponivel' },
+  { titulo: 'Ocarina interativa', texto: 'Furos, notas e som. Já dá para explorar.', rota: '#/ocarina', status: 'disponivel' },
   { titulo: 'Técnica de ocarina', texto: 'Postura, sopro suave, articulação e respiração.', status: 'breve' },
   { titulo: 'Prática com feedback', texto: 'Quiz, modo escuta com microfone e modo guiado.', status: 'breve' },
   { titulo: 'Repertório Zelda', texto: 'Melodias curtas, da mais fácil para a mais difícil.', status: 'breve' },
@@ -11,13 +13,25 @@ const TRILHA = [
 ];
 
 export async function montar(raiz) {
+  // status dinâmico dos Fundamentos (lições concluídas)
+  let resumoFund = '';
+  let fundCompleto = false;
+  try {
+    const licoes = await obterLicoes();
+    const p = progressoLicoes();
+    const n = licoes.filter((l) => p[l.id]?.concluida).length;
+    resumoFund = ` · ${n} de ${licoes.length} lições concluídas`;
+    fundCompleto = n === licoes.length;
+  } catch { /* segue sem o resumo */ }
+
   raiz.innerHTML = `
     <section class="hero">
       <div class="hero-texto">
         <h1>Aprenda ocarina do zero</h1>
         <p>Sem precisar saber música. Cada nota mostra onde colocar os dedos e como ela soa.</p>
         <div class="hero-acoes">
-          <a class="btn btn-primario" href="#/ocarina">Explorar a ocarina</a>
+          <a class="btn btn-primario" href="#/fundamentos">Começar pelos fundamentos</a>
+          <a class="btn" href="#/ocarina">Explorar a ocarina</a>
         </div>
       </div>
       <div class="cartao ocarina-cartao" id="hero-oc" aria-hidden="true"></div>
@@ -26,10 +40,10 @@ export async function montar(raiz) {
       <h2 id="trilha-h">Trilha de estudo</h2>
       <ol class="trilha">
         ${TRILHA.map(t => `
-          <li data-status="${t.status}">
+          <li data-status="${t.chave === 'fundamentos' && fundCompleto ? 'pronto' : t.status}">
             <div>
               <strong>${t.rota ? `<a href="${t.rota}">${t.titulo}</a>` : t.titulo}</strong>
-              <small>${t.texto}${t.status === 'breve' ? ' · em breve' : ''}</small>
+              <small>${t.texto}${t.status === 'breve' ? ' · em breve' : ''}${t.chave === 'fundamentos' ? resumoFund : ''}</small>
             </div>
           </li>`).join('')}
       </ol>
