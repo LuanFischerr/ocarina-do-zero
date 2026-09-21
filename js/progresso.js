@@ -63,3 +63,25 @@ export function pesoRevisao(id, est = estatisticasNotas()) {
   const vencida = new Date(n.revisar) <= new Date() ? 2 : 0;
   return 1 + n.erros * 0.6 + (5 - n.caixa) * 0.5 + vencida;
 }
+
+// ---- Repertório: melhor resultado por música ----
+const CHAVE_MUS = 'progresso.musicas';
+
+export function progressoMusicas() {
+  return ler(CHAVE_MUS, {}) || {};
+}
+
+/** Guarda o melhor resultado do modo guiado. "Dominada" = 85% ou mais de acertos em andamento de 90% ou mais. */
+export function registrarMusica(id, { pct, andamentoPct, ok, total }) {
+  const p = progressoMusicas();
+  const m = p[id] ?? { tentativas: 0, melhorPct: 0, melhorAndamento: 0, dominada: false };
+  m.tentativas++;
+  m.ultima = new Date().toISOString();
+  if (pct > m.melhorPct || (pct === m.melhorPct && andamentoPct > m.melhorAndamento)) {
+    m.melhorPct = pct; m.melhorAndamento = andamentoPct; m.melhorOk = ok; m.melhorTotal = total;
+  }
+  if (pct >= 85 && andamentoPct >= 90) m.dominada = true;
+  p[id] = m;
+  salvar(CHAVE_MUS, p);
+  return m;
+}

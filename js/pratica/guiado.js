@@ -25,7 +25,7 @@ export function montarEventos(O, notas) {
   });
 }
 
-export function montarGuiado(raiz, { O, treinos, treinoId = null, titulo = 'Modo guiado' }) {
+export function montarGuiado(raiz, { O, treinos, treinoId = null, titulo = 'Modo guiado', mostrarSeletor = true, aoResultado = null }) {
   const a4 = O.dados.referencia_a4_hz;
   const mic = criarMicrofone({ a4 });
   const painelMic = criarPainelMic(mic, { titulo: 'Microfone para a avaliação', aoSemMic: () => {} });
@@ -105,6 +105,7 @@ export function montarGuiado(raiz, { O, treinos, treinoId = null, titulo = 'Modo
   let rodada = 0;
 
   selTreino.value = treino.id;
+  if (!mostrarSeletor) el.querySelector('.g-sel').hidden = true;
 
   const bpmEfetivo = () => Math.round((treino.bpm * range.value) / 100);
   function atualizarRotulos() {
@@ -390,6 +391,7 @@ export function montarGuiado(raiz, { O, treinos, treinoId = null, titulo = 'Modo
       <p class="w-dica">${sugestao}</p>
       <button type="button" class="btn btn-primario" data-de-novo>↻ Tentar de novo</button>`;
     statusEl.textContent = `Terminou: ${ok} de ${notas.length} notas certas.`;
+    aoResultado?.({ treino, ok, total: notas.length, pct, andamentoPct: +range.value, bpm: bpmAtual });
     resEl.querySelector('[data-de-novo]').addEventListener('click', () => iniciar('jogar'));
     resEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }
