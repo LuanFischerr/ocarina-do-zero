@@ -1,0 +1,496 @@
+{
+  "_comentario": "Dedilhados da ocarina de 12 furos, afinação Alto C. \"cobertos\" = furos que devem estar tampados; todos os outros ficam abertos. Edite livremente para casar com a SUA ocarina; marque \"validada_na_minha_ocarina\": true depois de testar.",
+  "afinacao": "Alto C",
+  "extensao": {
+    "grave": "A4",
+    "aguda": "F6"
+  },
+  "referencia_a4_hz": 440,
+  "ordem_furos": [
+    "e_ind",
+    "e_med",
+    "e_anel",
+    "e_min",
+    "d_ind",
+    "d_med",
+    "d_anel",
+    "d_min",
+    "sub_a",
+    "sub_b",
+    "e_pol",
+    "d_pol"
+  ],
+  "fontes": {
+    "ps": {
+      "titulo": "Playsoloist — 12-Hole Alto C Ocarina Finger Chart",
+      "url": "https://playsoloist.com/ocarina/finger-chart",
+      "tipo": "tabela em texto",
+      "consultada_em": "2026-09-21"
+    },
+    "ic": {
+      "titulo": "Imperial City Ocarina — 12-Hole Alto C, Complete Fingering Chart (PDF)",
+      "url": "https://www.imperialcityocarina.com/images/cache/ac-12-hole-fingering-chart.pdf",
+      "tipo": "tabela ilustrada (lida por análise da imagem)",
+      "consultada_em": "2026-09-21"
+    },
+    "pure": {
+      "titulo": "Pure Ocarinas — The ocarina's fingering system",
+      "url": "https://pureocarinas.com/ocarina-fingering-system",
+      "tipo": "texto; só confirma a ordem das notas naturais. O desenho de 12 furos deles é de outro projeto (furos divididos), não comparável."
+    },
+    "fcorg": {
+      "titulo": "fingeringchart.org — Ocarina Fingering Chart",
+      "url": "https://fingeringchart.org/pages/ocarina-fingering-chart",
+      "tipo": "texto; ordem de C5 a C6 coincide, mas descreve C5 como \"12 furos cobertos\", o que contradiz A4 como nota mais grave. Descartada como fonte de dedilhado."
+    }
+  },
+  "divergencias": [
+    "D#5/Mi♭5: Imperial City (solta só o anelar direito) x Playsoloist (Mi 5 + sub-furo B fechado).",
+    "C#6/Ré♭6 e D#6/Mi♭6: fontes concordam no dedilhado principal; Playsoloist cita fabricantes que fecham o indicador esquerdo (guardado como alternativa).",
+    "Qual sub-furo é \"A\" e qual é \"B\" (e em que mão ficam) VARIA entre fabricantes; aqui foi inferido pela foto. Se A4/A♯4/B4 soarem trocados, inverta sub_a e sub_b em ocarina-layout.json.",
+    "Sustenidos/bemóis são dedilhados cruzados e dependem de cada modelo: a sua ocarina pode ter outro. Sempre valide de ouvido/afinador."
+  ],
+  "notas": [
+    {
+      "id": "A4",
+      "midi": 69,
+      "cobertos": [
+        "e_ind",
+        "e_med",
+        "e_anel",
+        "e_min",
+        "d_ind",
+        "d_med",
+        "d_anel",
+        "d_min",
+        "sub_a",
+        "sub_b",
+        "e_pol",
+        "d_pol"
+      ],
+      "confianca": "alta",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Nota mais grave. Todos os furos + os dois sub-furos cobertos.",
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "A#4",
+      "midi": 70,
+      "cobertos": [
+        "e_ind",
+        "e_med",
+        "e_anel",
+        "e_min",
+        "d_ind",
+        "d_med",
+        "d_anel",
+        "d_min",
+        "sub_a",
+        "e_pol",
+        "d_pol"
+      ],
+      "confianca": "alta",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Só o sub-furo A coberto (o B fica aberto).",
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "B4",
+      "midi": 71,
+      "cobertos": [
+        "e_ind",
+        "e_med",
+        "e_anel",
+        "e_min",
+        "d_ind",
+        "d_med",
+        "d_anel",
+        "d_min",
+        "sub_b",
+        "e_pol",
+        "d_pol"
+      ],
+      "confianca": "alta",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Só o sub-furo B coberto (o A fica aberto).",
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "C5",
+      "midi": 72,
+      "cobertos": [
+        "e_ind",
+        "e_med",
+        "e_anel",
+        "e_min",
+        "d_ind",
+        "d_med",
+        "d_anel",
+        "d_min",
+        "e_pol",
+        "d_pol"
+      ],
+      "confianca": "alta",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Posição \"casa\": 10 furos cobertos, sub-furos abertos.",
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "C#5",
+      "midi": 73,
+      "cobertos": [
+        "e_ind",
+        "e_med",
+        "e_anel",
+        "e_min",
+        "d_ind",
+        "d_med",
+        "d_anel",
+        "sub_b",
+        "e_pol",
+        "d_pol"
+      ],
+      "confianca": "alta",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Dedilhado de Ré 5 fechando o sub-furo B.",
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "D5",
+      "midi": 74,
+      "cobertos": [
+        "e_ind",
+        "e_med",
+        "e_anel",
+        "e_min",
+        "d_ind",
+        "d_med",
+        "d_anel",
+        "e_pol",
+        "d_pol"
+      ],
+      "confianca": "alta",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Solte o mínimo direito.",
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "D#5",
+      "midi": 75,
+      "cobertos": [
+        "e_ind",
+        "e_med",
+        "e_anel",
+        "e_min",
+        "d_ind",
+        "d_med",
+        "d_min",
+        "e_pol",
+        "d_pol"
+      ],
+      "confianca": "media",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "DIVERGÊNCIA entre fontes. Imperial City: solte só o anelar direito (mínimo direito fica coberto). Playsoloist: dedilhado de Mi 5 + sub-furo B fechado (veja a alternativa). Teste os dois na sua ocarina.",
+      "alternativas": [
+        {
+          "cobertos": [
+            "e_ind",
+            "e_med",
+            "e_anel",
+            "e_min",
+            "d_ind",
+            "d_med",
+            "sub_b",
+            "e_pol",
+            "d_pol"
+          ],
+          "fonte": "ps",
+          "observacao": "Versão do Playsoloist: dedilhado de Mi 5 + sub-furo B fechado."
+        }
+      ],
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "E5",
+      "midi": 76,
+      "cobertos": [
+        "e_ind",
+        "e_med",
+        "e_anel",
+        "e_min",
+        "d_ind",
+        "d_med",
+        "e_pol",
+        "d_pol"
+      ],
+      "confianca": "alta",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Solte mínimo e anelar direitos.",
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "F5",
+      "midi": 77,
+      "cobertos": [
+        "e_ind",
+        "e_med",
+        "e_anel",
+        "e_min",
+        "d_ind",
+        "e_pol",
+        "d_pol"
+      ],
+      "confianca": "alta",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Solte mínimo, anelar e médio direitos.",
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "F#5",
+      "midi": 78,
+      "cobertos": [
+        "e_ind",
+        "e_med",
+        "e_anel",
+        "e_min",
+        "d_anel",
+        "e_pol",
+        "d_pol"
+      ],
+      "confianca": "alta",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Dedilhado de Sol 5 com o anelar direito de volta (cruzado).",
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "G5",
+      "midi": 79,
+      "cobertos": [
+        "e_ind",
+        "e_med",
+        "e_anel",
+        "e_min",
+        "e_pol",
+        "d_pol"
+      ],
+      "confianca": "alta",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Mão direita toda levantada.",
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "G#5",
+      "midi": 80,
+      "cobertos": [
+        "e_ind",
+        "e_med",
+        "e_min",
+        "d_anel",
+        "e_pol",
+        "d_pol"
+      ],
+      "confianca": "alta",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Dedilhado de Lá 5 com o anelar direito coberto.",
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "A5",
+      "midi": 81,
+      "cobertos": [
+        "e_ind",
+        "e_med",
+        "e_min",
+        "e_pol",
+        "d_pol"
+      ],
+      "confianca": "alta",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Mão direita solta + anelar esquerdo solto.",
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "A#5",
+      "midi": 82,
+      "cobertos": [
+        "e_ind",
+        "e_min",
+        "d_anel",
+        "e_pol",
+        "d_pol"
+      ],
+      "confianca": "alta",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Dedilhado de Si 5 com o anelar direito coberto.",
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "B5",
+      "midi": 83,
+      "cobertos": [
+        "e_ind",
+        "e_min",
+        "e_pol",
+        "d_pol"
+      ],
+      "confianca": "alta",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Mais o médio esquerdo solto.",
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "C6",
+      "midi": 84,
+      "cobertos": [
+        "e_min",
+        "e_pol",
+        "d_pol"
+      ],
+      "confianca": "alta",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Só mínimo esquerdo e os dois polegares cobertos.",
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "C#6",
+      "midi": 85,
+      "cobertos": [
+        "e_min",
+        "d_anel",
+        "d_pol"
+      ],
+      "confianca": "media",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Imperial City e Playsoloist concordam neste dedilhado. O Playsoloist avisa que alguns fabricantes fecham o indicador esquerdo em vez do anelar direito (alternativa).",
+      "alternativas": [
+        {
+          "cobertos": [
+            "e_ind",
+            "e_min",
+            "d_pol"
+          ],
+          "fonte": "ps",
+          "observacao": "Variação citada pelo Playsoloist: alguns fabricantes fecham o indicador esquerdo."
+        }
+      ],
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "D6",
+      "midi": 86,
+      "cobertos": [
+        "e_min",
+        "d_pol"
+      ],
+      "confianca": "alta",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Polegar esquerdo solto.",
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "D#6",
+      "midi": 87,
+      "cobertos": [
+        "e_min",
+        "d_anel"
+      ],
+      "confianca": "media",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Imperial City e Playsoloist concordam. Playsoloist cita variação (indicador esquerdo fechado).",
+      "alternativas": [
+        {
+          "cobertos": [
+            "e_ind",
+            "e_min"
+          ],
+          "fonte": "ps",
+          "observacao": "Variação citada pelo Playsoloist: alguns fabricantes fecham o indicador esquerdo."
+        }
+      ],
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "E6",
+      "midi": 88,
+      "cobertos": [
+        "e_min"
+      ],
+      "confianca": "alta",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Polegar direito solto também; só o mínimo esquerdo coberto.",
+      "validada_na_minha_ocarina": false
+    },
+    {
+      "id": "F6",
+      "midi": 89,
+      "cobertos": [],
+      "confianca": "alta",
+      "fontes": [
+        "ps",
+        "ic"
+      ],
+      "observacao": "Tudo aberto, inclusive o mínimo esquerdo. Nota mais aguda.",
+      "validada_na_minha_ocarina": false
+    }
+  ]
+}

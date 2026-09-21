@@ -1,0 +1,177 @@
+{
+  "_comentario": "Posições dos furos no SVG (vista como nas tabelas dos fabricantes: bocal para baixo, mão esquerda em cima). \"origem_foto\" = posição na foto referencias/foto-frente.jpg. INFERIDO das fotos + comparação com tabelas: valide com a ocarina na mão (ver \"incerto\").",
+  "incerto": [
+    "Qual furo é cada dedo foi INFERIDO comparando o padrão de furos da foto com a tabela do Imperial City. Confirme: com tudo tampado, soltar só o mínimo direito deve dar Ré 5.",
+    "Qual polegar é esquerdo/direito foi inferido pelo espelhamento da foto de trás.",
+    "O contorno do corpo é uma aproximação traçada à mão sobre a foto."
+  ],
+  "viewBox": [
+    0,
+    0,
+    1080,
+    700
+  ],
+  "corpo": {
+    "transform": "matrix(0 -1 1 0 -330 790)",
+    "path": "M 572 378 C 640 380 730 560 752 760 C 768 930 745 1130 690 1250 C 655 1320 610 1352 585 1348 C 545 1340 500 1250 455 1150 C 420 1060 390 950 355 850 C 345 820 338 805 328 797 L 175 748 C 155 735 150 690 170 668 L 250 660 C 300 655 380 650 400 648 C 440 590 500 470 572 378 Z",
+    "brilho": "M 605 430 C 680 520 715 640 728 780 C 738 900 722 1040 690 1150"
+  },
+  "furos": {
+    "e_ind": {
+      "rotulo": "Indicador esquerdo",
+      "mao": "esquerda",
+      "dedo": 1,
+      "tipo": "dedo",
+      "x": 190,
+      "y": 185,
+      "r": 27,
+      "origem_foto": [
+        605,
+        520
+      ]
+    },
+    "e_med": {
+      "rotulo": "Médio esquerdo",
+      "mao": "esquerda",
+      "dedo": 2,
+      "tipo": "dedo",
+      "x": 325,
+      "y": 180,
+      "r": 31,
+      "origem_foto": [
+        610,
+        655
+      ]
+    },
+    "e_anel": {
+      "rotulo": "Anelar esquerdo",
+      "mao": "esquerda",
+      "dedo": 3,
+      "tipo": "dedo",
+      "x": 447,
+      "y": 128,
+      "r": 30,
+      "origem_foto": [
+        662,
+        777
+      ]
+    },
+    "e_min": {
+      "rotulo": "Mínimo esquerdo",
+      "mao": "esquerda",
+      "dedo": 4,
+      "tipo": "dedo",
+      "x": 587,
+      "y": 90,
+      "r": 25,
+      "origem_foto": [
+        700,
+        917
+      ]
+    },
+    "d_ind": {
+      "rotulo": "Indicador direito",
+      "mao": "direita",
+      "dedo": 1,
+      "tipo": "dedo",
+      "x": 568,
+      "y": 307,
+      "r": 25,
+      "origem_foto": [
+        483,
+        898
+      ]
+    },
+    "d_med": {
+      "rotulo": "Médio direito",
+      "mao": "direita",
+      "dedo": 2,
+      "tipo": "dedo",
+      "x": 698,
+      "y": 250,
+      "r": 21,
+      "origem_foto": [
+        540,
+        1028
+      ]
+    },
+    "d_anel": {
+      "rotulo": "Anelar direito",
+      "mao": "direita",
+      "dedo": 3,
+      "tipo": "dedo",
+      "x": 810,
+      "y": 190,
+      "r": 26,
+      "origem_foto": [
+        600,
+        1140
+      ]
+    },
+    "d_min": {
+      "rotulo": "Mínimo direito",
+      "mao": "direita",
+      "dedo": 4,
+      "tipo": "dedo",
+      "x": 895,
+      "y": 213,
+      "r": 16,
+      "origem_foto": [
+        577,
+        1225
+      ]
+    },
+    "sub_a": {
+      "rotulo": "Sub-furo A (ao lado do médio esquerdo)",
+      "mao": "esquerda",
+      "dedo": 2,
+      "tipo": "sub",
+      "x": 356,
+      "y": 273,
+      "r": 15,
+      "origem_foto": [
+        517,
+        686
+      ]
+    },
+    "sub_b": {
+      "rotulo": "Sub-furo B (ao lado do médio direito)",
+      "mao": "direita",
+      "dedo": 2,
+      "tipo": "sub",
+      "x": 690,
+      "y": 197,
+      "r": 13,
+      "origem_foto": [
+        593,
+        1020
+      ]
+    },
+    "e_pol": {
+      "rotulo": "Polegar esquerdo (atrás)",
+      "mao": "esquerda",
+      "dedo": 0,
+      "tipo": "polegar",
+      "x": 242,
+      "y": 215,
+      "r": 31,
+      "origem_foto": [
+        575,
+        572
+      ]
+    },
+    "d_pol": {
+      "rotulo": "Polegar direito (atrás)",
+      "mao": "direita",
+      "dedo": 0,
+      "tipo": "polegar",
+      "x": 732,
+      "y": 235,
+      "r": 31,
+      "origem_foto": [
+        555,
+        1062
+      ]
+    }
+  }
+}
