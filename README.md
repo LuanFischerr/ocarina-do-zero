@@ -3,7 +3,7 @@
 Sistema visual e interativo para aprender ocarina de 12 furos (afinação **Alto C**) e música básica, em português do Brasil.
 HTML/CSS/JS puro, sem build. Funciona no GitHub Pages.
 
-> Status: **etapa 5** (ocarina + dedilhados + tabela + Fundamentos + Técnica + Prática com microfone). Restam Repertório Zelda e Progresso.
+> Status: **etapa 6** (ocarina, tabela, Fundamentos, Técnica, Prática com microfone e Repertório Zelda). Resta a tela de Progresso.
 
 ## Rodar localmente
 
@@ -33,8 +33,8 @@ js/fundamentos/ widgets.js · exercicios.js · ritmo.js · pauta.js
 js/tecnica/  widgets.js · ilustracoes.js (SVG originais)
 js/progresso.js (progresso das lições)
 js/ocarina/ dedilhados.js · ocarina-svg.js · teclado.js · medidor.js
-js/modulos/ inicio.js · fundamentos.js · tecnica.js · pratica.js · ocarina.js · tabela.js
-data/       dedilhados.json · ocarina-layout.json · licoes.json · tecnica.json · treinos.json   ← editáveis
+js/modulos/ inicio.js · fundamentos.js · tecnica.js · pratica.js · repertorio.js · ocarina.js · tabela.js
+data/       dedilhados.json · ocarina-layout.json · licoes.json · tecnica.json · treinos.json · musicas.json   ← editáveis
 referencias/ fotos da ocarina
 ```
 
@@ -50,3 +50,7 @@ Veja `divergencias` em `data/dedilhados.json` e `incerto` em `data/ocarina-layou
 ## Microfone (modo escuta e guiado)
 
 O microfone só funciona em contexto seguro: **https** (GitHub Pages) ou **localhost**. O navegador pede permissão só quando você toca em "Ativar microfone". O áudio é analisado no próprio aparelho (autocorrelação normalizada) e **não é gravado nem enviado**. Se você negar, tudo continua funcionando sem avaliação automática.
+
+## Repertório e direitos autorais
+
+`data/musicas.json` guarda as 12 canções de *Ocarina of Time* como sequências curtas de notas, cada uma com `"verificada": true/false` e as fontes usadas. O app usa **apenas notas sintetizadas no navegador e arte original**, sem áudio, sprites ou imagens da Nintendo. As melodias e os nomes pertencem aos seus titulares. O ritmo exibido é simplificado para estudo (`"ritmo_verificado": false`).

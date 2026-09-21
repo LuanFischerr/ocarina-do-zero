@@ -1,7 +1,8 @@
 import { obterOcarina } from '../ocarina/dedilhados.js';
 import { criarOcarinaSVG } from '../ocarina/ocarina-svg.js';
 import { obterLicoes } from './fundamentos.js';
-import { progressoLicoes, progressoTecnica } from '../progresso.js';
+import { progressoLicoes, progressoTecnica, progressoMusicas } from '../progresso.js';
+import { obterMusicas } from './repertorio.js';
 import { obterTecnica } from './tecnica.js';
 
 const TRILHA = [
@@ -9,7 +10,7 @@ const TRILHA = [
   { titulo: 'Ocarina interativa', texto: 'Furos, notas e som. Já dá para explorar.', rota: '#/ocarina', status: 'disponivel' },
   { chave: 'tecnica', titulo: 'Técnica de ocarina', texto: 'Postura, sopro suave, articulação e respiração.', rota: '#/tecnica', status: 'disponivel' },
   { chave: 'pratica', titulo: 'Prática com feedback', texto: 'Quiz, modo escuta com microfone e modo guiado.', rota: '#/pratica', status: 'disponivel' },
-  { titulo: 'Repertório Zelda', texto: 'Melodias curtas, da mais fácil para a mais difícil.', status: 'breve' },
+  { chave: 'repertorio', titulo: 'Repertório Zelda', texto: 'As 12 canções de Ocarina of Time, da mais fácil para a mais difícil.', rota: '#/repertorio', status: 'disponivel' },
   { titulo: 'Progresso', texto: 'O que você já domina e o que ainda erra.', status: 'breve' },
 ];
 
@@ -34,6 +35,14 @@ export async function montar(raiz) {
     tecCompleto = n === t.topicos.length;
   } catch { /* segue sem o resumo */ }
 
+  let resumoRep = '';
+  try {
+    const d = await obterMusicas();
+    const p = progressoMusicas();
+    const n = d.musicas.filter((x) => p[x.id]?.dominada).length;
+    resumoRep = ` · ${n} de ${d.musicas.length} canções dominadas`;
+  } catch { /* segue sem o resumo */ }
+
   raiz.innerHTML = `
     <section class="hero">
       <div class="hero-texto">
@@ -53,7 +62,7 @@ export async function montar(raiz) {
           <li data-status="${(t.chave === 'fundamentos' && fundCompleto) || (t.chave === 'tecnica' && tecCompleto) ? 'pronto' : t.status}">
             <div>
               <strong>${t.rota ? `<a href="${t.rota}">${t.titulo}</a>` : t.titulo}</strong>
-              <small>${t.texto}${t.status === 'breve' ? ' · em breve' : ''}${t.chave === 'fundamentos' ? resumoFund : t.chave === 'tecnica' ? resumoTec : ''}</small>
+              <small>${t.texto}${t.status === 'breve' ? ' · em breve' : ''}${t.chave === 'fundamentos' ? resumoFund : t.chave === 'tecnica' ? resumoTec : t.chave === 'repertorio' ? resumoRep : ''}</small>
             </div>
           </li>`).join('')}
       </ol>
